@@ -12,8 +12,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float crouchSpeed;
     [SerializeField] float jumpForce;
+
     float moveHorizontal = 0f;
-    bool isCrouching;
+
+    [HideInInspector] public bool isCrouching = false;
+    [HideInInspector] public bool isMoving = false;
 
     void Start()
     {
@@ -39,10 +42,15 @@ public class PlayerController : MonoBehaviour
     {
         if (moveHorizontal > 0.1f || moveHorizontal < -0.1f)
         {
+            isMoving = true;
             SetSpriteDirection();
 
             float speed = isCrouching ? crouchSpeed : moveSpeed;
             rb2d.AddForce(new Vector2(moveHorizontal * speed, 0f), ForceMode2D.Impulse);
+
+        } else
+        {
+            isMoving = false;
         }
     }
 
@@ -83,7 +91,7 @@ public class PlayerController : MonoBehaviour
         transform.localScale = characterScale;
     }
 
-    bool IsGrounded()
+    public bool IsGrounded()
     {
         Vector2 position = transform.position;
         Vector2 direction = Vector2.down;
