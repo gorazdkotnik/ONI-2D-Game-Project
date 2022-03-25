@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
 
     float moveHorizontal = 0f;
 
+    [SerializeField] float jumpRate = 1f;
+    float lastJumped = 0f;
+
     [HideInInspector] public bool isCrouching = false;
     [HideInInspector] public bool isMoving = false;
 
@@ -59,8 +62,9 @@ public class PlayerController : MonoBehaviour
         bool isJumping = !IsGrounded();
         animator.SetBool("isJumping", isJumping);
 
-        if (!isJumping && Input.GetButton("Jump"))
+        if (!isJumping && Input.GetButton("Jump") && Time.time > lastJumped + jumpRate)
         {
+            lastJumped = Time.time;
             rb2d.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
     }
