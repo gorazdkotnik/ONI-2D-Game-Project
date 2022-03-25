@@ -357,9 +357,9 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_XDamping: 0.25
-  m_YDamping: 0.25
-  m_ZDamping: 0.25
+  m_XDamping: 0
+  m_YDamping: 0
+  m_ZDamping: 0
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
@@ -553,9 +553,9 @@ GameObject:
   - component: {fileID: 1957103461}
   - component: {fileID: 1957103460}
   - component: {fileID: 1957103462}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
-  m_TagString: Ground
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -715,53 +715,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8762611834366962864, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8762611834366962864, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: m_GravityScale
+    - target: {fileID: 8762611834366962867, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: crouchSpeed
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8762611834366962865, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: m_Size.y
-      value: 1.3126113
-      objectReference: {fileID: 0}
-    - target: {fileID: 8762611834366962865, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.5365088
-      objectReference: {fileID: 0}
-    - target: {fileID: 8762611834366962865, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 5.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 8762611834366962865, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 8762611834366962866, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 20daa800a641d9e4cae18a06630db1ef, type: 3}
-    - target: {fileID: 8762611834366962866, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8762611834366962867, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: gravity
-      value: -9.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 8762611834366962867, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: jumpForce
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8762611834366962867, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: jumpAmount
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8762611834366962867, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: horizontalSpeed
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8762611834366962870, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: m_Name
