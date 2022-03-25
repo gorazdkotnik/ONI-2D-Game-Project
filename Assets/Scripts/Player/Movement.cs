@@ -4,23 +4,51 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    // Move
     [SerializeField] float horizontalSpeed = 10f;
-    [SerializeField] float verticalSpeed = 10f;
+    float horizontalAmount;
 
-    
+    // Jump
+    [SerializeField] float jumpForce = 20;
+    [SerializeField] float gravity = -9.81f;
+    [SerializeField] float gravityScale = 5;
+    bool isGrounded = false;
+    float distanceToCheck = 0.5f;
+    float velocity;
+
     void Update()
     {
+        // Move left / right
         float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-
         if (horizontalInput > 0.1f || horizontalInput < -0.1f)
         {
-            transform.Translate(horizontalInput * Time.deltaTime * horizontalSpeed, 0f, 0f);
+            horizontalAmount = horizontalInput * Time.deltaTime * horizontalSpeed;
+        } else
+        {
+            horizontalAmount = 0;
         }
 
-        if (verticalInput > 0.1f || verticalInput < -0.1f)
+        // Jump
+        velocity += gravity * gravityScale * Time.deltaTime;
+        if (isGrounded && velocity < 0)
         {
-            transform.Translate(0f, verticalInput * Time.deltaTime * verticalSpeed, 0f);
+            velocity = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            velocity = jumpForce;
+        }
+
+        transform.Translate(horizontalAmount, velocity, 0);
+
+        // Ground check
+        if (Physics2D.Raycast(transform.position, Vector2.down, distanceToCheck))
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
         }
     }
 }
