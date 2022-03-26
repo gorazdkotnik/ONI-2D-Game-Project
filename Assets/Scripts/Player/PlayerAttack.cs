@@ -5,27 +5,33 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     PlayerController playerController;
+
     Rigidbody2D rb2d;
     Animator animator;
 
+    [Header("Fire Positions")]
     [SerializeField] Transform firePoint;
     [SerializeField] Transform crouchFirePoint;
-    [SerializeField] GameObject fireBall;
-
     [SerializeField] GameObject specialAttackPoints;
 
-    [SerializeField] float bulletForce = 20f;
-    bool isAttacking = false;
+    [Header("Bullet")]
+    [SerializeField] GameObject fireBall;
 
+    [Header("Bullet Physics")]
+    [SerializeField] float bulletForce = 20f;
     [SerializeField] float fireRate = 0.5f;
     float lastShootTime = 0f;
 
-    [HideInInspector] public bool isSpecialAttacking = false;
-
+    [Header("Special Attack")]
     [SerializeField] float specialAttackForce;
     [SerializeField] float specialAttackRate = 10f;
-    [SerializeField] GameObject ultimateEffect;
     float lastSpecialAttack = 0f;
+
+    [Header("Effects")]
+    [SerializeField] GameObject ultimateEffect;
+
+    [HideInInspector] public bool isSpecialAttacking = false;
+    bool isAttacking = false;
 
     float[] specialAttackFireBallRotations = new float[5] {-90f, -60f, -120f, 0f, 180f};
 

@@ -6,24 +6,27 @@ public class PlayerController : MonoBehaviour
 {
     PlayerAttack playerAttack;
 
-    [SerializeField] LayerMask groundLayer;
-
-    [SerializeField] GameObject jumpEffectPoint;
-    [SerializeField] GameObject jumpEffect;
-    [SerializeField] float effectRate = 0.5f;
-    float lastEffect = 0f;
-
     Rigidbody2D rb2d;
     Animator animator;
 
-    [SerializeField] float moveSpeed;
-    [SerializeField] float crouchSpeed;
+    [Header("Layer Masks")]
+    [SerializeField] LayerMask groundLayer;
+
+    [Header("Jumping")]
+    [SerializeField] GameObject jumpEffectPoint;
+    [SerializeField] GameObject jumpEffect;
     [SerializeField] float jumpForce;
-
-    float moveHorizontal = 0f;
-
     [SerializeField] float jumpRate = 1f;
     float lastJumped = 0f;
+
+    [Header("Moving")]
+    [SerializeField] float moveSpeed;
+    [SerializeField] float crouchSpeed;
+    float moveHorizontal = 0f;
+
+    [Header("Effects")]
+    [SerializeField] float effectRate = 0.5f;
+    float lastEffect = 0f;
 
     [HideInInspector] public bool isCrouching = false;
     [HideInInspector] public bool isMoving = false;
