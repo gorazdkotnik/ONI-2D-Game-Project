@@ -5,10 +5,13 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     PlayerController playerController;
+    Rigidbody2D rb2d;
     Animator animator;
 
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject fireBall;
+
+    [SerializeField] GameObject specialAttackPoints;
 
     [SerializeField] float bulletForce = 20f;
     bool isAttacking = false;
@@ -16,22 +19,33 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] float fireRate = 0.5f;
     float lastShootTime = 0f;
 
+    [HideInInspector] public bool isSpecialAttacking = false;
+
+    [SerializeField] float specialAttackForce;
+    [SerializeField] float specialAttackRate = 10f;
+    float lastSpecialAttack = 0f;
+
     void Start()
     {
+        rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerController = GetComponent<PlayerController>();
     }
 
     void Update()
     {
-        if ((playerController.IsGrounded() && !playerController.isMoving) || (playerController.isMoving && playerController.IsGrounded() && playerController.isCrouching))
-        {
-            AttackController();
-        }
+
+        AttackController();
+        SpecialAttackController();
     }
 
     void AttackController()
     {
+        if (!((playerController.IsGrounded() && !playerController.isMoving) || (playerController.isMoving && playerController.IsGrounded() && playerController.isCrouching) && !isSpecialAttacking))
+        {
+            return;
+        }       
+
         if (Input.GetMouseButtonDown(0) && Time.time > lastShootTime + fireRate)
         {
             lastShootTime = Time.time;
@@ -45,7 +59,43 @@ public class PlayerAttack : MonoBehaviour
         animator.SetBool("isAttacking", isAttacking);
     }
 
+    void SpecialAttackController()
+    {
+        if (!isSpecialAttacking && Input.GetKey(KeyCode.R) && Time.time > lastSpecialAttack + specialAttackRate)
+        {
+            isSpecialAttacking = true;
+            animator.SetBool("isJumping", isSpecialAttacking);
+
+            lastSpecialAttack = Time.time;
+            rb2d.AddForce(new Vector2(0f, specialAttackForce), ForceMode2D.Impulse);
+
+            Invoke("SpawnFireBalls", 0.2f);
+
+            Invoke("EndSpecialAttack", 1f);
+        }
+    }
+
+    void SpawnFireBalls()
+    {
+        for (int i = 0; i < specialAttackPoints.transform.childCount; i++)
+        {
+            Transform firePoint = specialAttackPoints.transform.GetChild(i);
+            InstantiateFireBall(fireBall, firePoint);
+        }
+    }
+
+    void EndSpecialAttack()
+    {
+        isSpecialAttacking = false;
+        animator.SetBool("isJumping", isSpecialAttacking);
+    }
+
     void Shoot()
+    {
+        InstantiateFireBall(fireBall, firePoint);
+    }
+
+    void InstantiateFireBall(GameObject fireBall, Transform firePoint)
     {
         GameObject bullet = Instantiate(fireBall, firePoint.position, fireBall.transform.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();

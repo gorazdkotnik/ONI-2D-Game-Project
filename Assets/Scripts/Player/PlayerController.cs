@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    PlayerAttack playerAttack;
+
     [SerializeField] LayerMask groundLayer;
+
+    [SerializeField] GameObject jumpEffectPoint;
+    [SerializeField] GameObject jumpEffect;
+    [SerializeField] float effectRate = 0.5f;
+    float lastEffect = 0f;
 
     Rigidbody2D rb2d;
     Animator animator;
@@ -29,6 +36,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        playerAttack = GetComponent<PlayerAttack>();
+
         moveHorizontal = Input.GetAxis("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(moveHorizontal));
 
@@ -43,10 +52,14 @@ public class PlayerController : MonoBehaviour
 
     void MoveController()
     {
+        if (isSpecialAttacking()) return;
+
         if (moveHorizontal > 0.1f || moveHorizontal < -0.1f)
         {
             isMoving = true;
+
             SetSpriteDirection();
+            InstantiateWindEffect();
 
             float speed = isCrouching ? crouchSpeed : moveSpeed;
             rb2d.AddForce(new Vector2(moveHorizontal * speed, 0f), ForceMode2D.Impulse);
@@ -59,18 +72,25 @@ public class PlayerController : MonoBehaviour
 
     void JumpController()
     {
+        if (isSpecialAttacking()) return;
+
         bool isJumping = !IsGrounded();
         animator.SetBool("isJumping", isJumping);
 
         if (!isJumping && Input.GetButton("Jump") && Time.time > lastJumped + jumpRate)
         {
             lastJumped = Time.time;
+
+            InstantiateWindEffect(isJumping);
+
             rb2d.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
     }
 
     void CrouchControler()
     {
+        if (isSpecialAttacking()) return;
+
         if (Input.GetButtonDown("Crouch"))
         {
             isCrouching = true;
@@ -93,6 +113,31 @@ public class PlayerController : MonoBehaviour
             characterScale.x = 1;
         }
         transform.localScale = characterScale;
+    }
+
+    void InstantiateWindEffect(bool isJumping = false)
+    {
+        if ((IsGrounded() && Time.time > lastEffect + effectRate) || (isJumping))
+        {
+            Vector3 jumpEffectScale = transform.localScale;
+            if (moveHorizontal < -0.1f)
+            {
+                jumpEffectScale.x = -1;
+            } else
+            {
+                jumpEffectScale.x = 1;
+            }
+            jumpEffect.transform.localScale = jumpEffectScale;
+
+            lastEffect = Time.time;
+            GameObject effect = Instantiate(jumpEffect, jumpEffectPoint.transform.position, jumpEffectPoint.transform.rotation);
+            Destroy(effect, 0.2f);
+        }
+    }
+
+    bool isSpecialAttacking()
+    {
+        return playerAttack && playerAttack.isSpecialAttacking;
     }
 
     public bool IsGrounded()
