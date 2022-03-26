@@ -24,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] float specialAttackForce;
     [SerializeField] float specialAttackRate = 10f;
+    [SerializeField] GameObject ultimateEffect;
     float lastSpecialAttack = 0f;
 
     float[] specialAttackFireBallRotations = new float[5] {-90f, -60f, -120f, 0f, 180f};
@@ -72,7 +73,7 @@ public class PlayerAttack : MonoBehaviour
             lastSpecialAttack = Time.time;
             rb2d.AddForce(new Vector2(0f, specialAttackForce), ForceMode2D.Impulse);
 
-            Invoke("SpawnFireBalls", 0.2f);
+            Invoke("SpawnFireBalls", 0.15f);
 
             Invoke("EndSpecialAttack", 1f);
         }
@@ -85,6 +86,13 @@ public class PlayerAttack : MonoBehaviour
             Transform firePoint = specialAttackPoints.transform.GetChild(i);
             InstantiateFireBall(fireBall, firePoint, new Vector3(0f, 0f, specialAttackFireBallRotations[i]));
         }
+        InstantiateUltimateEffect();
+    }
+
+    void InstantiateUltimateEffect()
+    {
+        GameObject effect = Instantiate(ultimateEffect, transform.position, ultimateEffect.transform.rotation);
+        Destroy(effect, 0.3f);
     }
 
     void EndSpecialAttack()
