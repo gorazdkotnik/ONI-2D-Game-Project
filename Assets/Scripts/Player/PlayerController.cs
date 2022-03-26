@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public bool isCrouching = false;
     [HideInInspector] public bool isMoving = false;
+    [HideInInspector] public bool facingRight = true;
 
     void Start()
     {
@@ -57,6 +58,7 @@ public class PlayerController : MonoBehaviour
         if (moveHorizontal > 0.1f || moveHorizontal < -0.1f)
         {
             isMoving = true;
+            facingRight = moveHorizontal > 0f;
 
             SetSpriteDirection();
             InstantiateWindEffect();
@@ -117,7 +119,7 @@ public class PlayerController : MonoBehaviour
 
     void InstantiateWindEffect(bool isJumping = false)
     {
-        if ((IsGrounded() && Time.time > lastEffect + effectRate) || (isJumping))
+        if ((IsGrounded() && !isCrouching && Time.time > lastEffect + effectRate) || (isJumping))
         {
             Vector3 jumpEffectScale = transform.localScale;
             if (moveHorizontal < -0.1f)

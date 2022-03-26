@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
     Animator animator;
 
     [SerializeField] Transform firePoint;
+    [SerializeField] Transform crouchFirePoint;
     [SerializeField] GameObject fireBall;
 
     [SerializeField] GameObject specialAttackPoints;
@@ -24,6 +25,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] float specialAttackForce;
     [SerializeField] float specialAttackRate = 10f;
     float lastSpecialAttack = 0f;
+
+    float[] specialAttackFireBallRotations = new float[5] {-90f, -60f, -120f, 0f, 180f};
 
     void Start()
     {
@@ -80,7 +83,7 @@ public class PlayerAttack : MonoBehaviour
         for (int i = 0; i < specialAttackPoints.transform.childCount; i++)
         {
             Transform firePoint = specialAttackPoints.transform.GetChild(i);
-            InstantiateFireBall(fireBall, firePoint);
+            InstantiateFireBall(fireBall, firePoint, new Vector3(0f, 0f, specialAttackFireBallRotations[i]));
         }
     }
 
@@ -92,12 +95,19 @@ public class PlayerAttack : MonoBehaviour
 
     void Shoot()
     {
-        InstantiateFireBall(fireBall, firePoint);
+        Vector3 rotation = new Vector3(0f, 0f, 0f);
+
+        if (!playerController.facingRight)
+        {
+            rotation.z = 180f;
+        }
+
+        InstantiateFireBall(fireBall, playerController.isCrouching ? crouchFirePoint : firePoint, rotation);
     }
 
-    void InstantiateFireBall(GameObject fireBall, Transform firePoint)
+    void InstantiateFireBall(GameObject fireBall, Transform firePoint, Vector3 rotation)
     {
-        GameObject bullet = Instantiate(fireBall, firePoint.position, fireBall.transform.rotation);
+        GameObject bullet = Instantiate(fireBall, firePoint.position, Quaternion.Euler(rotation));
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }
