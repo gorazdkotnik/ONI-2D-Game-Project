@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: -400}
-  m_SizeDelta: {x: 300, y: 1000}
+  m_AnchoredPosition: {x: -250, y: -400}
+  m_SizeDelta: {x: 500, y: 1100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6152371451350591578
 CanvasRenderer:
@@ -68,7 +68,9 @@ MonoBehaviour:
   m_text: 'Project Manager
 
 
+
     Animators
+
 
 
 
@@ -78,12 +80,15 @@ MonoBehaviour:
 
 
 
-    Original Planner
+
+    Original
+    Planner
 
 
 
-    Game
-    Designers
+
+    Game Designers
+
 
 
 
@@ -92,19 +97,22 @@ MonoBehaviour:
     UI Designer
 
 
+
     Audio Engineer
 
 
-    Game Play Testers
+
+    Game
+    Play Testers
 
 
 
 
-    Special
-    Thanks'
+
+    Special Thanks'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5cb1b56ec2c72894794d6795086d6592, type: 2}
+  m_sharedMaterial: {fileID: -4717979910109312476, guid: 5cb1b56ec2c72894794d6795086d6592, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -128,8 +136,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -302,8 +310,8 @@ MonoBehaviour:
 
     CREDITS'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5cb1b56ec2c72894794d6795086d6592, type: 2}
+  m_sharedMaterial: {fileID: -4717979910109312476, guid: 5cb1b56ec2c72894794d6795086d6592, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -327,8 +335,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -403,8 +411,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 150, y: -400}
-  m_SizeDelta: {x: 300, y: 1000}
+  m_AnchoredPosition: {x: 250, y: -400}
+  m_SizeDelta: {x: 500, y: 1100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6152371452065348987
 CanvasRenderer:
@@ -434,14 +442,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "An\u017Ee Maj Blagus\n\nAn\u017Ee Maj Blagus\nGorazd Kotnik\nTimotej Kompare\n\nAn\u017Ee
-    Maj Blagus\nGorazd Kotnik\nTimotej Kompare\n\nAn\u017Ee Maj Blagus\nGorazd Kotnik\n\nAn\u017Ee
-    Maj Blagus\nGorazd Kotnik\nTimotej Kompare\n\n\nTimotej Kompare\n\nTimotej Kompare\n\nAn\u017Ee
-    Maj Blagus\nGorazd Kotnik\nTimotej Kompare\n\nSamo \u017Deleznik\nAle\u0161 Spital\nUro\u0161
-    Remenih\nMarjetka Herode\u017E\nNata\u0161a Meh Peer\nSimona Dikli\u010D"
+  m_text: "An\u017Ee Maj Blagus\n\n\nAn\u017Ee Maj Blagus\nGorazd Kotnik\nTimotej
+    Kompare\n\n\nAn\u017Ee Maj Blagus\nGorazd Kotnik\nTimotej Kompare\n\n\nAn\u017Ee
+    Maj Blagus\nGorazd Kotnik\n\n\nAn\u017Ee Maj Blagus\nGorazd Kotnik\nTimotej Kompare\n\n\n\nTimotej
+    Kompare\n\n\nTimotej Kompare\n\n\nAn\u017Ee Maj Blagus\nGorazd Kotnik\nTimotej
+    Kompare\n\n\nSamo \u017Deleznik\nAle\u0161 Spital\nUro\u0161 Remenih\nMarjetka
+    Herode\u017E\nNata\u0161a Meh Peer\nSimona Dikli\u010D"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5cb1b56ec2c72894794d6795086d6592, type: 2}
+  m_sharedMaterial: {fileID: -4717979910109312476, guid: 5cb1b56ec2c72894794d6795086d6592, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -465,13 +474,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535

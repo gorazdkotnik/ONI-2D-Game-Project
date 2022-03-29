@@ -112,7 +112,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.75
   m_Color: {r: 0.8301887, g: 0.6499377, b: 0.254539, a: 1}
-  m_Intensity: 0.75
+  m_Intensity: 1.5
   m_LightVolumeOpacity: 0.4
   m_ApplyToSortingLayers: 000000006f136ab569af48048388690f57b6b902
   m_LightCookieSprite: {fileID: 0}
@@ -558,6 +558,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
+  respawnScreen: {fileID: 0}
   maxHealth: 100
   collisionBounceY: 10
   collisionBounceX: 30
+  hitEffect: {fileID: 6049784389114383512, guid: 264a1d7e7922d4e4b9e1d6126327d23a, type: 3}

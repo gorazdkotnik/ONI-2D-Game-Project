@@ -11,12 +11,18 @@ public class PlayerHealth : MonoBehaviour
     [Header("HUD")]
     [SerializeField] GameObject healthBar;
 
+    [Header("UI")]
+    [SerializeField] GameObject respawnScreen;
+
     [Header("Options")]
-    float currentHealth;
     [SerializeField] float maxHealth = 100f;
+    float currentHealth;
 
     [SerializeField] float collisionBounceY = 10f;
     [SerializeField] float collisionBounceX = 50f;
+
+    [Header("Effects")]
+    [SerializeField] GameObject hitEffect;
 
     void Start()
     {
@@ -41,15 +47,39 @@ public class PlayerHealth : MonoBehaviour
         switch(collision.gameObject.tag.ToLower())
         {
             case "crab":
-                CrabCollisionHandler(collision);
+                PlayerCollisionHandler(collision, 10f);
                 break;
+        }
+
+        CheckPlayerDeath();
+    }
+
+    void CheckPlayerDeath()
+    {
+        if (currentHealth <= 0)
+        {
+            Time.timeScale = 0f;
+            respawnScreen.SetActive(true);
         }
     }
 
 
-    void CrabCollisionHandler(Collision2D collision)
+    void PlayerCollisionHandler(Collision2D collision, float damage)
     {
-        currentHealth -= 10f;
+        currentHealth -= damage;
+        BouncePlayerBack();
+        PlayHitEffect();
+    }
+
+    void BouncePlayerBack()
+    {
         rb2d.AddForce(new Vector2((playerController.facingRight ? -1 : 1) * collisionBounceX, collisionBounceY), ForceMode2D.Impulse);
     }
+
+    void PlayHitEffect()
+    {
+        GameObject effect = Instantiate(hitEffect, transform.position + new Vector3(0f, 0f, 0f), Quaternion.identity);
+        Destroy(effect, 1f);
+    }
+
 }

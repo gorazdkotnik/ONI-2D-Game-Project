@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 7990764176384555859}
   - component: {fileID: 7990764176384555857}
   - component: {fileID: 1263974947}
+  - component: {fileID: 149769571}
   m_Layer: 3
   m_Name: Crab
   m_TagString: Crab
@@ -214,3 +215,16 @@ CircleCollider2D:
   m_Offset: {x: -0.01, y: -0.07}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &149769571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7990764176384555860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf0c8c69137e6149b40562a4b387369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitEffect: {fileID: 6049784389114383512, guid: bbb9774195e3a3c47843c4004a15c00a, type: 3}

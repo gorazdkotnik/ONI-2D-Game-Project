@@ -8,7 +8,7 @@ public class Credits : MonoBehaviour
 
     void Start()
     {
-        Invoke("ExitCredits", 20f);
+        Invoke("ExitCredits", 25f);
     }
 
     void Update()

@@ -77,12 +77,14 @@ public class PlayerAttack : MonoBehaviour
 
     void SpecialAttackController()
     {
-        if (!isSpecialAttacking && Input.GetKey(KeyCode.R) && Time.time > lastSpecialAttack + specialAttackRate)
+        if (!isSpecialAttacking && !isAttacking && Input.GetKey(KeyCode.R) && Time.time > lastSpecialAttack + specialAttackRate)
         {
             isSpecialAttacking = true;
             animator.SetBool("isJumping", isSpecialAttacking);
 
             lastSpecialAttack = Time.time;
+            lastShootTime = Time.time;
+
             rb2d.AddForce(new Vector2(0f, specialAttackForce), ForceMode2D.Impulse);
 
             Invoke("SpawnFireBalls", 0.15f);
