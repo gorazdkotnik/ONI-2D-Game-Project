@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
             InstantiateWindEffect();
 
             float speed = isCrouching ? crouchSpeed : moveSpeed;
-            rb2d.AddForce(new Vector2(moveHorizontal * speed, 0f), ForceMode2D.Impulse);
+            rb2d.AddForce(new Vector2(moveHorizontal * speed * Time.deltaTime, 0f), ForceMode2D.Impulse);
 
         } else
         {
@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
             InstantiateWindEffect(isJumping);
 
-            rb2d.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            rb2d.AddForce(new Vector2(0f, jumpForce * Time.deltaTime), ForceMode2D.Impulse);
         }
     }
 

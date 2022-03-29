@@ -478,9 +478,9 @@ MonoBehaviour:
     m_Bits: 8
   jumpEffectPoint: {fileID: 577246652}
   jumpEffect: {fileID: 1133824071906413143, guid: 8659230d41ea3304ab258e78e9a82663, type: 3}
-  jumpForce: 40
+  jumpForce: 2000
   jumpRate: 0.75
-  moveSpeed: 1.5
+  moveSpeed: 100
   crouchSpeed: 1
   effectRate: 0.4
   isCrouching: 0

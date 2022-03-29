@@ -105,6 +105,8 @@ public class PlayerAttack : MonoBehaviour
 
             Invoke("SpawnFireBalls", 0.15f);
 
+            Invoke("SpawnFireBalls", 0.35f);
+
             Invoke("EndSpecialAttack", 1f);
         }
     }
