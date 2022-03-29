@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 8762611833532925534}
   - component: {fileID: 1751041502007290383}
   - component: {fileID: 1349787210}
+  - component: {fileID: 3347278558723747257}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -532,6 +533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ffebca2696c9a42b99a90f1849d7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  qBar: {fileID: 0}
+  rBar: {fileID: 0}
   firePoint: {fileID: 348998983}
   crouchFirePoint: {fileID: 1687276281109982842}
   specialAttackPoints: {fileID: 394385303}
@@ -542,3 +545,19 @@ MonoBehaviour:
   specialAttackRate: 5
   ultimateEffect: {fileID: 8609496708351718217, guid: 65da2f8081db52c4c85e5fb41ffbbe2f, type: 3}
   isSpecialAttacking: 0
+--- !u!114 &3347278558723747257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8762611834366962870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f97def0c8cffd40b1d9266a5231cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  maxHealth: 100
+  collisionBounceY: 10
+  collisionBounceX: 30

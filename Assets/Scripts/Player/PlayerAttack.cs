@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class PlayerAttack : MonoBehaviour
 
     Rigidbody2D rb2d;
     Animator animator;
+
+    [Header("HUD")]
+    [SerializeField] GameObject qBar;
+    [SerializeField] GameObject rBar;
 
     [Header("Fire Positions")]
     [SerializeField] Transform firePoint;
@@ -47,6 +52,7 @@ public class PlayerAttack : MonoBehaviour
 
         AttackController();
         SpecialAttackController();
+        UpdateBars();
     }
 
     void AttackController()
@@ -124,5 +130,14 @@ public class PlayerAttack : MonoBehaviour
         GameObject bullet = Instantiate(fireBall, firePoint.position, Quaternion.Euler(rotation));
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+    }
+
+    void UpdateBars()
+    {
+        float attackFillAmount = (Time.time - lastShootTime) / fireRate;
+        float specialAttackFillAmount = (Time.time - lastSpecialAttack) / specialAttackRate;
+
+        qBar.GetComponent<Image>().fillAmount = attackFillAmount;
+        rBar.GetComponent<Image>().fillAmount = specialAttackFillAmount;
     }
 }
