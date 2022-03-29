@@ -101595,6 +101595,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7846070531234574765, guid: 2c974983662a6e94d97eb8f14e1a19bd, type: 3}
   m_PrefabInstance: {fileID: 7846070530346552639}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1498236001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2251599707469271603, guid: 36e95e573f9047c499a88cd9966aeb16, type: 3}
+  m_PrefabInstance: {fileID: 3782400575803109774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1511226948
 GameObject:
   m_ObjectHideFlags: 0
@@ -102278,6 +102283,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1349787210, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: eBar
+      value: 
+      objectReference: {fileID: 1498236001}
     - target: {fileID: 1349787210, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: qBar
       value: 

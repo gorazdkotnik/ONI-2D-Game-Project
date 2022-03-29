@@ -13,6 +13,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("HUD")]
     [SerializeField] GameObject qBar;
     [SerializeField] GameObject rBar;
+    [SerializeField] GameObject eBar;
 
     [Header("Fire Positions")]
     [SerializeField] Transform firePoint;
@@ -24,16 +25,20 @@ public class PlayerAttack : MonoBehaviour
 
     [Header("Bullet Physics")]
     [SerializeField] float bulletForce = 20f;
-    [SerializeField] float fireRate = 0.5f;
-    float lastShootTime = 0f;
+    [SerializeField] float qAttackRate = 0.5f;
+    float qLastShoot = 0f;
+
+    [Header("Secondary Attack")]
+    [SerializeField] float eAttackRate = 4f;
+    float eLastShoot = 0f;
 
     [Header("Special Attack")]
     [SerializeField] float specialAttackForce;
-    [SerializeField] float specialAttackRate = 10f;
-    float lastSpecialAttack = 0f;
+    [SerializeField] float rAttackRate = 10f;
+    float rLastShoot = 0f;
 
     [Header("Effects")]
-    [SerializeField] GameObject ultimateEffect;
+    [SerializeField] GameObject rEffect;
 
     [HideInInspector] public bool isSpecialAttacking = false;
     bool isAttacking = false;
@@ -52,23 +57,33 @@ public class PlayerAttack : MonoBehaviour
 
         AttackController();
         SpecialAttackController();
+
         UpdateBars();
+        ShowDoableActions();
     }
 
     void AttackController()
     {
-        if (!((playerController.IsGrounded() && !playerController.isMoving) || (playerController.isMoving && playerController.IsGrounded() && playerController.isCrouching) && !isSpecialAttacking))
+        if (!AbleToAttack())
         {
             return;
         }       
 
-        if (Input.GetKeyDown(KeyCode.Q) && Time.time > lastShootTime + fireRate)
+        if (Input.GetKeyDown(KeyCode.Q) && Time.time > qLastShoot + qAttackRate)
         {
-            lastShootTime = Time.time;
+            qLastShoot = Time.time;
             isAttacking = true;
             Shoot();
+        } else if (Input.GetKeyDown(KeyCode.E) && Time.time > eLastShoot + eAttackRate)
+        {
+            qLastShoot = Time.time;
+            eLastShoot = Time.time;
+
+            isAttacking = true;
+            Shoot();
+            Invoke("Shoot", 0.2f);
         }
-        else if (Input.GetKeyUp(KeyCode.Q))
+        else if (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.E))
         {
             isAttacking = false;
         }
@@ -77,13 +92,14 @@ public class PlayerAttack : MonoBehaviour
 
     void SpecialAttackController()
     {
-        if (!isSpecialAttacking && !isAttacking && Input.GetKey(KeyCode.R) && Time.time > lastSpecialAttack + specialAttackRate)
+        if (AbleToSpecialAttack() && Input.GetKey(KeyCode.R) && Time.time > rLastShoot + rAttackRate)
         {
             isSpecialAttacking = true;
             animator.SetBool("isJumping", isSpecialAttacking);
 
-            lastSpecialAttack = Time.time;
-            lastShootTime = Time.time;
+            rLastShoot = Time.time;
+            qLastShoot = Time.time;
+            eLastShoot = Time.time;
 
             rb2d.AddForce(new Vector2(0f, specialAttackForce), ForceMode2D.Impulse);
 
@@ -105,7 +121,7 @@ public class PlayerAttack : MonoBehaviour
 
     void InstantiateUltimateEffect()
     {
-        GameObject effect = Instantiate(ultimateEffect, transform.position, ultimateEffect.transform.rotation);
+        GameObject effect = Instantiate(rEffect, transform.position, rEffect.transform.rotation);
         Destroy(effect, 0.3f);
     }
 
@@ -136,10 +152,43 @@ public class PlayerAttack : MonoBehaviour
 
     void UpdateBars()
     {
-        float attackFillAmount = (Time.time - lastShootTime) / fireRate;
-        float specialAttackFillAmount = (Time.time - lastSpecialAttack) / specialAttackRate;
+        float qFillAmount = (Time.time - qLastShoot) / qAttackRate;
+        float eFillAmount = (Time.time - eLastShoot) / eAttackRate;
+        float rFillAmount = (Time.time - rLastShoot) / rAttackRate;
 
-        qBar.GetComponent<Image>().fillAmount = attackFillAmount;
-        rBar.GetComponent<Image>().fillAmount = specialAttackFillAmount;
+        qBar.GetComponent<Image>().fillAmount = qFillAmount;
+        eBar.GetComponent<Image>().fillAmount = eFillAmount;
+        rBar.GetComponent<Image>().fillAmount = rFillAmount;
+    }
+
+    bool AbleToAttack()
+    {
+        return ((playerController.IsGrounded() && !playerController.isMoving) || (playerController.isMoving && playerController.IsGrounded() && playerController.isCrouching) && !isSpecialAttacking);
+    }
+
+    bool AbleToSpecialAttack()
+    {
+        return !isSpecialAttacking && !isAttacking;
+    }
+
+    void ShowDoableActions()
+    {
+        if(!AbleToAttack())
+        {
+            qBar.GetComponent<Image>().color = Color.gray;
+            eBar.GetComponent<Image>().color = Color.gray;
+        } else
+        {
+            qBar.GetComponent<Image>().color = Color.white;
+            eBar.GetComponent<Image>().color = Color.white;
+        }
+
+        if (!AbleToSpecialAttack())
+        {
+            rBar.GetComponent<Image>().color = Color.gray;
+        } else
+        {
+            rBar.GetComponent<Image>().color = Color.white;
+        }
     }
 }
