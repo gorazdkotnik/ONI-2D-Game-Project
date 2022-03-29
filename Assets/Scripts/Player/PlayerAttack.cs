@@ -56,13 +56,13 @@ public class PlayerAttack : MonoBehaviour
             return;
         }       
 
-        if (Input.GetMouseButtonDown(0) && Time.time > lastShootTime + fireRate)
+        if (Input.GetKeyDown(KeyCode.Q) && Time.time > lastShootTime + fireRate)
         {
             lastShootTime = Time.time;
             isAttacking = true;
             Shoot();
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetKeyUp(KeyCode.Q))
         {
             isAttacking = false;
         }
