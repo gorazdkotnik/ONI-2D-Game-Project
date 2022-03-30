@@ -25,6 +25,8 @@ public class TrackPlayer : MonoBehaviour
         Vector2 distance = new Vector2(player.transform.position.x - transform.position.x, 0f);
         distance = distance.normalized;
 
+        if (Mathf.Abs(distance.x) > 10f) return;
+
         rb2d.AddForce(distance * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
     }
 

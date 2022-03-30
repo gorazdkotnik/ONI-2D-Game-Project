@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7990764176145544757}
   - component: {fileID: 7990764176145544754}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 1263974947}
   - component: {fileID: 149769571}
   - component: {fileID: 1869836119}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Crab
   m_TagString: Crab
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 6049784389114383512, guid: bbb9774195e3a3c47843c4004a15c00a, type: 3}
-  maxHealth: 60
+  maxHealth: 40
 --- !u!114 &1869836119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,4 +243,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 75
+  moveSpeed: 50
