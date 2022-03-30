@@ -6,8 +6,12 @@ public class TrackPlayer : MonoBehaviour
 {
     Rigidbody2D rb2d;
 
+    [Header("Target")]
     [SerializeField] GameObject player;
+
+    [Header("Options")]
     [SerializeField] float moveSpeed;
+    [SerializeField] float maxDistanceTrack = 10f;
 
     void Start()
     {
@@ -22,10 +26,12 @@ public class TrackPlayer : MonoBehaviour
     {
         RotateSprite();
 
-        Vector2 distance = new Vector2(player.transform.position.x - transform.position.x, 0f);
+        float distanceX = player.transform.position.x - transform.position.x;
+
+        Vector2 distance = new Vector2(distanceX, 0f);
         distance = distance.normalized;
 
-        if (Mathf.Abs(distance.x) > 10f) return;
+        if (Mathf.Abs(distanceX) > maxDistanceTrack) return;
 
         rb2d.AddForce(distance * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
     }

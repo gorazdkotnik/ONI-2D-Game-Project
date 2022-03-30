@@ -244,3 +244,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   moveSpeed: 50
+  maxDistanceTrack: 10

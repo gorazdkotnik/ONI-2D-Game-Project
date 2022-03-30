@@ -102229,6 +102229,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 946186780}
+    - target: {fileID: 1869836119, guid: 253928abcb0c0a246909c08bb9d71e37, type: 3}
+      propertyPath: maxDistanceTrack
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7990764176384555858, guid: 253928abcb0c0a246909c08bb9d71e37, type: 3}
       propertyPath: m_RootOrder
       value: 0
