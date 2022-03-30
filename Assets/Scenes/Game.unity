@@ -102411,6 +102411,10 @@ PrefabInstance:
       propertyPath: rBar
       value: 
       objectReference: {fileID: 151316970}
+    - target: {fileID: 1349787210, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: rAttackRate
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3347278558723747257, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: healthBar
       value: 

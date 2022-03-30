@@ -22,6 +22,7 @@ public class PlayerAttack : MonoBehaviour
 
     [Header("Bullet")]
     [SerializeField] GameObject fireBall;
+    [SerializeField] GameObject bigFireBall;
 
     [Header("Bullet Physics")]
     [SerializeField] float bulletForce = 20f;
@@ -43,7 +44,8 @@ public class PlayerAttack : MonoBehaviour
     [HideInInspector] public bool isSpecialAttacking = false;
     bool isAttacking = false;
 
-    float[] specialAttackFireBallRotations = new float[5] {-90f, -60f, -120f, 0f, 180f};
+    float[] specialAttackFireBallRotationsFR = new float[5] {-90f, -60f, -120f, 0f, 180f};
+    float[] specialAttackFireBallRotationsFL = new float[5] { -90f, -120f, -60f, 180f, 0f };
 
     void Start()
     {
@@ -116,7 +118,10 @@ public class PlayerAttack : MonoBehaviour
         for (int i = 0; i < specialAttackPoints.transform.childCount; i++)
         {
             Transform firePoint = specialAttackPoints.transform.GetChild(i);
-            InstantiateFireBall(fireBall, firePoint, new Vector3(0f, 0f, specialAttackFireBallRotations[i]));
+
+            float zRotation = playerController.facingRight ? specialAttackFireBallRotationsFR[i] : specialAttackFireBallRotationsFL[i];
+
+            InstantiateFireBall(bigFireBall, firePoint, new Vector3(0f, 0f, zRotation));
         }
         InstantiateUltimateEffect();
     }

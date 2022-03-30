@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 348998983}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 394385304}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Special Attack Fire Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 520700588}
   - component: {fileID: 520700589}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 577246653}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Jump Effect Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 832410245}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1369253187}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1500806229}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1903537115}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2072669341}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1687276281109982842}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crouch Fire Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 1751041502007290383}
   - component: {fileID: 1349787210}
   - component: {fileID: 3347278558723747257}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -540,11 +540,12 @@ MonoBehaviour:
   crouchFirePoint: {fileID: 1687276281109982842}
   specialAttackPoints: {fileID: 394385303}
   fireBall: {fileID: 5150434822059989233, guid: 385e87fb99e522b4b8fe72c61b4c125d, type: 3}
+  bigFireBall: {fileID: 5150434822059989233, guid: ce31946767340914fb9ec7dbdb56386d, type: 3}
   bulletForce: 15
   qAttackRate: 2
   eAttackRate: 4
   specialAttackForce: 75
-  rAttackRate: 10
+  rAttackRate: 2
   rEffect: {fileID: 8609496708351718217, guid: 65da2f8081db52c4c85e5fb41ffbbe2f, type: 3}
   isSpecialAttacking: 0
 --- !u!114 &3347278558723747257

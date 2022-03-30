@@ -4818,7 +4818,7 @@ GameObject:
   - component: {fileID: 4450973315141852847}
   - component: {fileID: 7362993785061581690}
   m_Layer: 7
-  m_Name: Fire Ball
+  m_Name: Big Fire Ball
   m_TagString: FireBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4833,7 +4833,7 @@ Transform:
   m_GameObject: {fileID: 5150434822059989233}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: -2, z: 0}
-  m_LocalScale: {x: 0.5, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_Children:
   - {fileID: 5150434822700102489}
   - {fileID: 1162832631659795560}
@@ -4936,7 +4936,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.91, y: 0.4}
+  m_Size: {x: 1, y: 1.25}
   m_EdgeRadius: 0
 --- !u!114 &7362993785061581690
 MonoBehaviour:
