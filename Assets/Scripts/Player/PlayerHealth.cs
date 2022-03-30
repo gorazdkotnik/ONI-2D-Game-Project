@@ -10,13 +10,17 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("HUD")]
     [SerializeField] GameObject healthBar;
+    [SerializeField] GameObject armorBar;
 
     [Header("UI")]
     [SerializeField] GameObject respawnScreen;
 
     [Header("Options")]
     [SerializeField] float maxHealth = 100f;
+    [SerializeField] float maxArmor = 100f;
+
     float currentHealth;
+    float currentArmor;
 
     [SerializeField] float collisionBounceY = 10f;
     [SerializeField] float collisionBounceX = 50f;
@@ -29,17 +33,19 @@ public class PlayerHealth : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         playerController = GetComponent<PlayerController>();
 
-        currentHealth = 100f;
+        currentHealth = maxHealth;
+        currentArmor = maxArmor;
     }
 
     void Update()
     {
-        UpdateHealthBar();
+        UpdateBars();
     }
 
-    void UpdateHealthBar()
+    void UpdateBars()
     {
         healthBar.GetComponent<Image>().fillAmount = currentHealth / maxHealth;
+        armorBar.GetComponent<Image>().fillAmount = currentArmor / maxArmor;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -58,17 +64,40 @@ public class PlayerHealth : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            FindObjectOfType<AudioManager>().Play("PlayerDeath");
+            EndAllSounds();
+
             Time.timeScale = 0f;
             respawnScreen.SetActive(true);
         }
     }
 
+    void EndAllSounds()
+    {
+        FindObjectOfType<AudioManager>().Stop("Run");
+    }
+
 
     void PlayerCollisionHandler(Collision2D collision, float damage)
     {
-        currentHealth -= damage;
+        if (currentArmor > 0f)
+        {
+            if (currentArmor - damage >= 0f)
+            {
+                currentArmor -= damage;
+            } else
+            {
+                currentArmor = 0;
+                currentHealth = Mathf.Abs(currentArmor - damage);
+            }
+        } else
+        {
+            currentHealth -= damage;
+        }
+
         BouncePlayerBack();
         PlayHitEffect();
+        FindObjectOfType<AudioManager>().Play("PlayerHit");
     }
 
     void BouncePlayerBack()

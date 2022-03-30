@@ -20,6 +20,8 @@ public class EnemyCollision : MonoBehaviour
     {
         if (collision.gameObject.tag == "FireBall")
         {
+            FindObjectOfType<AudioManager>().Play("EnemyHit");
+
             GameObject effect = Instantiate(hitEffect, transform.position + new Vector3(0f, 0f, 0f), Quaternion.identity);
             Destroy(effect, 1f);
 

@@ -52,6 +52,10 @@ public class PlayerAttack : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerController = GetComponent<PlayerController>();
+
+        qLastShoot = Time.time;
+        eLastShoot = Time.time;
+        rLastShoot = Time.time;
     }
 
     void Update()
@@ -155,6 +159,7 @@ public class PlayerAttack : MonoBehaviour
         GameObject bullet = Instantiate(fireBall, firePoint.position, Quaternion.Euler(rotation));
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        FindObjectOfType<AudioManager>().Play("FireCracker");
     }
 
     void UpdateBars()

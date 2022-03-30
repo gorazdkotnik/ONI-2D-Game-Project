@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
 
         if (moveHorizontal > 0.1f || moveHorizontal < -0.1f)
         {
+            
             isMoving = true;
             facingRight = moveHorizontal > 0f;
 
@@ -72,6 +73,14 @@ public class PlayerController : MonoBehaviour
         } else
         {
             isMoving = false;
+        }
+
+        if (isMoving && IsGrounded() && !isCrouching)
+        {
+            if (!FindObjectOfType<AudioManager>().isPlaying("Run")) FindObjectOfType<AudioManager>().Play("Run");
+        } else 
+        {
+            FindObjectOfType<AudioManager>().Stop("Run");
         }
     }
 
@@ -89,6 +98,7 @@ public class PlayerController : MonoBehaviour
             InstantiateWindEffect(isJumping);
 
             rb2d.AddForce(new Vector2(0f, jumpForce * Time.deltaTime), ForceMode2D.Impulse);
+            FindObjectOfType<AudioManager>().Play("Jump");
         }
     }
 
