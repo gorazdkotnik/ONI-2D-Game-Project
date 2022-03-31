@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -99720,7 +99720,7 @@ GameObject:
   - component: {fileID: 597545966}
   - component: {fileID: 597545965}
   - component: {fileID: 597545967}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Follow Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99912,7 +99912,7 @@ GameObject:
   - component: {fileID: 817167014}
   - component: {fileID: 817167013}
   - component: {fileID: 817167012}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99950,7 +99950,7 @@ MonoBehaviour:
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
   m_XDamping: 0
-  m_YDamping: 0.2
+  m_YDamping: 0
   m_ZDamping: 0
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
@@ -101989,6 +101989,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9f7935248019d40bf46915b472a704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1542193252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1542193254}
+  - component: {fileID: 1542193253}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1542193253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542193252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 587c92aba18bec14ab65d96ebea4596c, type: 2}
+--- !u!4 &1542193254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542193252}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1742652723 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3255393722511563804, guid: d2e96e11505124d42bd09bc84df58612, type: 3}
@@ -102138,7 +102186,7 @@ MonoBehaviour:
   parentBosses: {fileID: 1293968090}
   maxEnemies: 20
   maxBosses: 1
-  spawnRate: 4
+  spawnRate: 2
   bossSpawnRate: 10
   enemyPrefabs:
   - {fileID: 7990764176384555860, guid: 253928abcb0c0a246909c08bb9d71e37, type: 3}
@@ -102568,6 +102616,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 520700589, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1349787210, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: eBar
       value: 

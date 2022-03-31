@@ -243,4 +243,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  maxDistanceTrack: 10
+  maxDistanceTrack: 20
