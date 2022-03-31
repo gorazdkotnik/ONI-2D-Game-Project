@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7990764176145544756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.016666668, y: -0.075, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7990764176384555858}
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.75
-  m_Color: {r: 0, g: 0.07667971, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.017440395, b: 0, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0.4
   m_ApplyToSortingLayers: 000000006f136ab569af48048388690f57b6b902
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 149769571}
   - component: {fileID: 1869836119}
   m_Layer: 6
-  m_Name: Golem Boss
+  m_Name: Crab Boss
   m_TagString: Golem Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +149,7 @@ SpriteRenderer:
   m_SortingLayerID: 45725271
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4628221225906215552, guid: 6946cd59d8c7e234f851a23d8ce98454, type: 3}
+  m_Sprite: {fileID: 6197056623017412966, guid: 25e3c3e2a286eee48bba19e8d339e062, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -191,7 +191,7 @@ Animator:
   m_GameObject: {fileID: 7990764176384555860}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: de73cdbd51b1a4e429a03c2fe0f351a1, type: 2}
+  m_Controller: {fileID: 9100000, guid: baa67eee7fa8b9c4ba2715714aefac30, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -213,9 +213,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.02}
+  m_Offset: {x: -0.03, y: -0.05}
   serializedVersion: 2
-  m_Radius: 0.124327205
+  m_Radius: 0.10678907
 --- !u!114 &149769571
 MonoBehaviour:
   m_ObjectHideFlags: 0

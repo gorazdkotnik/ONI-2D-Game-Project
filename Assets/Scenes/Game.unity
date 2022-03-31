@@ -102194,6 +102194,8 @@ MonoBehaviour:
   - {fileID: 7990764176384555860, guid: 81d703cdee037df4d8c7ad0bac5ef951, type: 3}
   bossesPrefabs:
   - {fileID: 7990764176384555860, guid: de4bb41a9bf939b4b9f55f4f682a1670, type: 3}
+  - {fileID: 7990764176384555860, guid: 28b68cb08a050bd44b839e4fe3de59a0, type: 3}
+  - {fileID: 7990764176384555860, guid: 53e6b18614834b84f817a0f29d87ffa6, type: 3}
 --- !u!4 &1853299566
 Transform:
   m_ObjectHideFlags: 0
