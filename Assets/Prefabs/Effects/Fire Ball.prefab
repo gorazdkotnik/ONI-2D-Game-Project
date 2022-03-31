@@ -4952,7 +4952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 4107263812349442306, guid: 0db9447b63ab22b4a8f7f5e570bff0d5, type: 3}
   hitEffectOffsetY: 1.35
-  destroyDistance: 20
+  destroyDistance: 10
 --- !u!1 &5150434822700102494
 GameObject:
   m_ObjectHideFlags: 0
