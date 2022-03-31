@@ -102103,8 +102103,8 @@ MonoBehaviour:
   leftBound: -55
   yPosition: 10
   parent: {fileID: 349048914}
-  maxEnemies: 30
-  spawnRate: 2
+  maxEnemies: 20
+  spawnRate: 4
   enemyPrefabs:
   - {fileID: 7990764176384555860, guid: 253928abcb0c0a246909c08bb9d71e37, type: 3}
   - {fileID: 7990764176384555860, guid: 7c1813e1dd13b8f4db17989098dce35e, type: 3}
@@ -102555,6 +102555,14 @@ PrefabInstance:
       propertyPath: respawnScreen
       value: 
       objectReference: {fileID: 437015862}
+    - target: {fileID: 3347278558723747257, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: collisionBounceX
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3347278558723747257, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: collisionBounceY
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8762611834366962870, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: m_Name
       value: Player

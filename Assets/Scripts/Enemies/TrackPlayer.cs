@@ -32,7 +32,7 @@ public class TrackPlayer : MonoBehaviour
 
         if (Mathf.Abs(distanceX) > maxDistanceTrack) return;
 
-        rb2d.AddForce(distance * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, -1.8f), moveSpeed * Time.deltaTime);
     }
 
     void RotateSprite()

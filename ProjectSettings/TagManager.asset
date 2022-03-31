@@ -8,6 +8,7 @@ TagManager:
   - Crab
   - FireBall
   - Golem
+  - Zombie
   layers:
   - Default
   - TransparentFX

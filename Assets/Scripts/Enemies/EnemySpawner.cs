@@ -18,6 +18,10 @@ public class EnemySpawner : MonoBehaviour
     [Header("Enemies")]
     [SerializeField] GameObject[] enemyPrefabs;
 
+    void Start() {
+        SpawnEnemiesAtStart();
+    }
+
     void Update()
     {
         SpawnEnemies();
@@ -29,6 +33,14 @@ public class EnemySpawner : MonoBehaviour
         GameObject randomEnemy = enemyPrefabs[randomIndex];
         Vector3 spawnPosition = new Vector3(Random.Range(leftBound, rightBound), yPosition, transform.position.z);
         Instantiate(randomEnemy, spawnPosition, Quaternion.identity, parent.transform);
+    }
+
+    void SpawnEnemiesAtStart() {
+        lastSpawn = Time.time;
+        for (int i = 0; i < maxEnemies / 2; i++)
+        {
+            SpawnEnemy();
+        }
     }
 
     private void SpawnEnemies()
