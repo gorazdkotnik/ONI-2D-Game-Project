@@ -9,6 +9,7 @@ TagManager:
   - FireBall
   - Golem
   - Zombie
+  - Golem Boss
   layers:
   - Default
   - TransparentFX

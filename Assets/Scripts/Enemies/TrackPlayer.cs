@@ -32,7 +32,7 @@ public class TrackPlayer : MonoBehaviour
 
         if (Mathf.Abs(distanceX) > maxDistanceTrack) return;
 
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, -1.8f), moveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, -2f), moveSpeed * Time.deltaTime);
     }
 
     void RotateSprite()

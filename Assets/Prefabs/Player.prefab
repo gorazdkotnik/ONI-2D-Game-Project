@@ -566,8 +566,8 @@ MonoBehaviour:
   respawnScreen: {fileID: 0}
   maxHealth: 100
   maxArmor: 100
-  collisionBounceY: 20
-  collisionBounceX: 15
+  collisionBounceY: 30
+  collisionBounceX: 30
   hitEffect: {fileID: 6049784389114383512, guid: 264a1d7e7922d4e4b9e1d6126327d23a, type: 3}
 --- !u!82 &946186788
 AudioSource:
