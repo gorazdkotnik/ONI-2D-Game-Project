@@ -55,6 +55,9 @@ public class PlayerHealth : MonoBehaviour
             case "crab":
                 PlayerCollisionHandler(collision, 10f);
                 break;
+            case "golem":
+                PlayerCollisionHandler(collision, 20f);
+                break;    
         }
 
         CheckPlayerDeath();

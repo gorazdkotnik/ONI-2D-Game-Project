@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         moveHorizontal = Input.GetAxis("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(moveHorizontal));
 
-        CrouchControler();
+        CrouchController();
     }
 
     void FixedUpdate()
@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void CrouchControler()
+    void CrouchController()
     {
         if (isSpecialAttacking()) return;
 

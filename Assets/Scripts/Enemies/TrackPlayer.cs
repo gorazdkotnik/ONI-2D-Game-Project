@@ -5,9 +5,7 @@ using UnityEngine;
 public class TrackPlayer : MonoBehaviour
 {
     Rigidbody2D rb2d;
-
-    [Header("Target")]
-    [SerializeField] GameObject player;
+    GameObject player;
 
     [Header("Options")]
     [SerializeField] float moveSpeed;
@@ -16,6 +14,7 @@ public class TrackPlayer : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
     void Update()
     {

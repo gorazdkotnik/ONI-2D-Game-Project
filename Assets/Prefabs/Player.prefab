@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 946186788}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -481,7 +481,7 @@ MonoBehaviour:
   jumpEffect: {fileID: 1133824071906413143, guid: 8659230d41ea3304ab258e78e9a82663, type: 3}
   jumpForce: 2000
   jumpRate: 0.75
-  moveSpeed: 100
+  moveSpeed: 80
   crouchSpeed: 50
   effectRate: 0.4
   isCrouching: 0
@@ -543,7 +543,7 @@ MonoBehaviour:
   fireBall: {fileID: 5150434822059989233, guid: 385e87fb99e522b4b8fe72c61b4c125d, type: 3}
   bigFireBall: {fileID: 5150434822059989233, guid: ce31946767340914fb9ec7dbdb56386d, type: 3}
   bulletForce: 15
-  qAttackRate: 2
+  qAttackRate: 1
   eAttackRate: 4
   specialAttackForce: 75
   rAttackRate: 10
@@ -566,8 +566,8 @@ MonoBehaviour:
   respawnScreen: {fileID: 0}
   maxHealth: 100
   maxArmor: 100
-  collisionBounceY: 10
-  collisionBounceX: 30
+  collisionBounceY: 20
+  collisionBounceX: 15
   hitEffect: {fileID: 6049784389114383512, guid: 264a1d7e7922d4e4b9e1d6126327d23a, type: 3}
 --- !u!82 &946186788
 AudioSource:
