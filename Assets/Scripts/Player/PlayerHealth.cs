@@ -58,6 +58,9 @@ public class PlayerHealth : MonoBehaviour
             case "golem":
                 PlayerCollisionHandler(collision, 20f);
                 break;    
+                case "zombie":
+                PlayerCollisionHandler(collision, 15f);
+                break;
         }
 
         CheckPlayerDeath();
