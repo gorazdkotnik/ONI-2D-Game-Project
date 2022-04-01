@@ -102720,6 +102720,10 @@ PrefabInstance:
       propertyPath: minManaIncrease
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 618094891, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: itemPickupEffect
+      value: 
+      objectReference: {fileID: 3043335673364893450, guid: d60192433829f7f4598b60e62c89c0f5, type: 3}
     - target: {fileID: 1349787210, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: eBar
       value: 
@@ -102736,6 +102740,10 @@ PrefabInstance:
       propertyPath: manaBar
       value: 
       objectReference: {fileID: 2118397605}
+    - target: {fileID: 1349787210, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: manaRegenRate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3347278558723747257, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: armorBar
       value: 

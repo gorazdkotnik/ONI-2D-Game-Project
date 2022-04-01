@@ -7,6 +7,9 @@ public class ItemCollision : MonoBehaviour
     PlayerAttack playerAttack;
     PlayerHealth playerHealth;
 
+    [Header("Effects")]
+    [SerializeField] GameObject itemPickupEffect;
+
     [Header("Options")]
     [SerializeField] float minHealthIncrease = 10f;
     [SerializeField] float maxHealthIncrease = 100f;
@@ -23,7 +26,9 @@ public class ItemCollision : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        switch(other.gameObject.tag.ToLower()) {
+        string tag = other.gameObject.tag.ToLower();
+
+        switch(tag) {
             case "mana potion":
                 HandleManaPotion(other);
                 break;
@@ -46,6 +51,8 @@ public class ItemCollision : MonoBehaviour
         float manaIncrease = Random.Range(minManaIncrease, maxManaIncrease);
         playerAttack.UpdateMana(manaIncrease);
         Destroy(other.gameObject);
+
+        PlayEffect(transform.position);
     }
 
     void HandleHealthPotion(Collider2D other) {
@@ -58,6 +65,8 @@ public class ItemCollision : MonoBehaviour
         float healthIncrease = Random.Range(minHealthIncrease, maxHealthIncrease);
         playerHealth.UpdateHealth(healthIncrease);
         Destroy(other.gameObject);
+
+        PlayEffect(transform.position);
     }
 
     void HandleArmor(Collider2D other) {
@@ -70,5 +79,12 @@ public class ItemCollision : MonoBehaviour
         float armorIncrease = Random.Range(minArmorIncrease, maxArmorIncrease);
         playerHealth.UpdateArmor(armorIncrease);
         Destroy(other.gameObject);
+
+        PlayEffect(transform.position);
+    }
+
+    void PlayEffect(Vector3 position) {
+        GameObject effect = Instantiate(itemPickupEffect, position, Quaternion.identity);
+        Destroy(effect, 1f);
     }
 }
