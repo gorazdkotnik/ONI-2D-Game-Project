@@ -14,6 +14,17 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] GameObject qBar;
     [SerializeField] GameObject rBar;
     [SerializeField] GameObject eBar;
+    [SerializeField] GameObject manaBar;
+    [SerializeField] Color baseBarColor = Color.white;
+    [SerializeField] Color cooldownBarColor = Color.gray;
+
+    [Header("Mana")]
+    [SerializeField] float manaRegenRate = 0.1f;
+    [SerializeField] float maxMana = 200f;
+    [SerializeField] float qManaCost = 10f;
+    [SerializeField] float eManaCost = 20f;
+    [SerializeField] float rManaCost = 40f;
+    float currentMana;
 
     [Header("Fire Positions")]
     [SerializeField] Transform firePoint;
@@ -56,6 +67,8 @@ public class PlayerAttack : MonoBehaviour
         qLastShoot = Time.time;
         eLastShoot = Time.time;
         rLastShoot = Time.time;
+
+        currentMana = maxMana;
     }
 
     void Update()
@@ -65,6 +78,8 @@ public class PlayerAttack : MonoBehaviour
         SpecialAttackController();
 
         UpdateBars();
+        RegenerateMana();
+
         ShowDoableActions();
     }
 
@@ -75,15 +90,20 @@ public class PlayerAttack : MonoBehaviour
             return;
         }       
 
-        if (Input.GetKeyDown(KeyCode.Q) && Time.time > qLastShoot + qAttackRate)
+        if (Input.GetKeyDown(KeyCode.Q) && Time.time > qLastShoot + qAttackRate && enoughMana(qManaCost))
         {
             qLastShoot = Time.time;
             isAttacking = true;
+
+            updateMana(qManaCost);
+
             Shoot();
-        } else if (Input.GetKeyDown(KeyCode.E) && Time.time > eLastShoot + eAttackRate)
+        } else if (Input.GetKeyDown(KeyCode.E) && Time.time > eLastShoot + eAttackRate && enoughMana(eManaCost))
         {
             qLastShoot = Time.time;
             eLastShoot = Time.time;
+
+            updateMana(eManaCost);
 
             isAttacking = true;
             Shoot();
@@ -98,7 +118,7 @@ public class PlayerAttack : MonoBehaviour
 
     void SpecialAttackController()
     {
-        if (AbleToSpecialAttack() && Input.GetKey(KeyCode.R) && Time.time > rLastShoot + rAttackRate)
+        if (AbleToSpecialAttack() && enoughMana(rManaCost) && Input.GetKey(KeyCode.R) && Time.time > rLastShoot + rAttackRate)
         {
             isSpecialAttacking = true;
             animator.SetBool("isJumping", isSpecialAttacking);
@@ -106,6 +126,8 @@ public class PlayerAttack : MonoBehaviour
             rLastShoot = Time.time;
             qLastShoot = Time.time;
             eLastShoot = Time.time;
+
+            updateMana(rManaCost);
 
             rb2d.AddForce(new Vector2(0f, specialAttackForce), ForceMode2D.Impulse);
 
@@ -167,10 +189,12 @@ public class PlayerAttack : MonoBehaviour
         float qFillAmount = (Time.time - qLastShoot) / qAttackRate;
         float eFillAmount = (Time.time - eLastShoot) / eAttackRate;
         float rFillAmount = (Time.time - rLastShoot) / rAttackRate;
+        float manaFillAmount = currentMana / maxMana;
 
         qBar.GetComponent<Image>().fillAmount = qFillAmount;
         eBar.GetComponent<Image>().fillAmount = eFillAmount;
         rBar.GetComponent<Image>().fillAmount = rFillAmount;
+        manaBar.GetComponent<Image>().fillAmount = manaFillAmount;
     }
 
     bool AbleToAttack()
@@ -183,24 +207,48 @@ public class PlayerAttack : MonoBehaviour
         return !isSpecialAttacking && !isAttacking;
     }
 
+    bool enoughMana(float manaCost) {
+        return currentMana >= manaCost;
+    }
+
+    void updateMana(float manaCost)
+    {
+        currentMana -= manaCost;
+    }
+
+    // regenerate mana every few seconds
+    void RegenerateMana()
+    {
+        if (currentMana < maxMana)
+        {
+            currentMana += Time.deltaTime * manaRegenRate;
+        }
+    }
+
     void ShowDoableActions()
     {
-        if(!AbleToAttack())
+        if(!AbleToAttack() || !enoughMana(qManaCost))
         {
-            qBar.GetComponent<Image>().color = Color.gray;
-            eBar.GetComponent<Image>().color = Color.gray;
-        } else
-        {
-            qBar.GetComponent<Image>().color = Color.white;
-            eBar.GetComponent<Image>().color = Color.white;
+            qBar.GetComponent<Image>().color = cooldownBarColor;
+        } else {
+            qBar.GetComponent<Image>().color = baseBarColor;
         }
 
-        if (!AbleToSpecialAttack())
+        if(!AbleToAttack() || !enoughMana(eManaCost))
         {
-            rBar.GetComponent<Image>().color = Color.gray;
-        } else
+            eBar.GetComponent<Image>().color = cooldownBarColor;
+        } else {
+            eBar.GetComponent<Image>().color = baseBarColor;
+        }
+        
+
+        if (!AbleToSpecialAttack() || !enoughMana(rManaCost))
         {
-            rBar.GetComponent<Image>().color = Color.white;
+            rBar.GetComponent<Image>().color = cooldownBarColor;
+        }
+        else
+        {
+            rBar.GetComponent<Image>().color = baseBarColor;
         }
     }
 }

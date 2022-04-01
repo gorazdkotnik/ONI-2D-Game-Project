@@ -102210,6 +102210,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2118397605 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2710852869784368284, guid: 36e95e573f9047c499a88cd9966aeb16, type: 3}
+  m_PrefabInstance: {fileID: 3782400575803109774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3255393722028284207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102362,9 +102367,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
-    - target: {fileID: 8317049642936823818, guid: 36e95e573f9047c499a88cd9966aeb16, type: 3}
-      propertyPath: m_Maskable
-      value: 1
+    - target: {fileID: 7096481119186550255, guid: 36e95e573f9047c499a88cd9966aeb16, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36e95e573f9047c499a88cd9966aeb16, type: 3}
@@ -102638,6 +102643,30 @@ PrefabInstance:
       propertyPath: rBar
       value: 
       objectReference: {fileID: 151316970}
+    - target: {fileID: 1349787210, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: manaBar
+      value: 
+      objectReference: {fileID: 2118397605}
+    - target: {fileID: 1349787210, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: manaRegenRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349787210, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: cooldownBarColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349787210, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: cooldownBarColor.b
+      value: 0.24528301
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349787210, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: cooldownBarColor.g
+      value: 0.24528301
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349787210, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: cooldownBarColor.r
+      value: 0.24528301
+      objectReference: {fileID: 0}
     - target: {fileID: 3347278558723747257, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: armorBar
       value: 
