@@ -540,8 +540,8 @@ MonoBehaviour:
   eBar: {fileID: 0}
   manaBar: {fileID: 0}
   baseBarColor: {r: 1, g: 1, b: 1, a: 1}
-  cooldownBarColor: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
-  manaRegenRate: 0.5
+  cooldownBarColor: {r: 1, g: 0, b: 0, a: 1}
+  manaRegenRate: 2
   maxMana: 200
   qManaCost: 10
   eManaCost: 20
@@ -552,8 +552,8 @@ MonoBehaviour:
   fireBall: {fileID: 5150434822059989233, guid: 385e87fb99e522b4b8fe72c61b4c125d, type: 3}
   bigFireBall: {fileID: 5150434822059989233, guid: ce31946767340914fb9ec7dbdb56386d, type: 3}
   bulletForce: 15
-  qAttackRate: 1
-  eAttackRate: 4
+  qAttackRate: 0.5
+  eAttackRate: 3
   specialAttackForce: 75
   rAttackRate: 10
   rEffect: {fileID: 8609496708351718217, guid: 65da2f8081db52c4c85e5fb41ffbbe2f, type: 3}
@@ -575,8 +575,8 @@ MonoBehaviour:
   respawnScreen: {fileID: 0}
   maxHealth: 100
   maxArmor: 100
-  collisionBounceY: 15
-  collisionBounceX: 20
+  collisionBounceY: 30
+  collisionBounceX: 30
   hitEffect: {fileID: 6049784389114383512, guid: 264a1d7e7922d4e4b9e1d6126327d23a, type: 3}
 --- !u!82 &946186788
 AudioSource:
@@ -686,9 +686,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421a505c0ac53b5479b3b574423fc079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPickupEffect: {fileID: 3043335673364893450, guid: d60192433829f7f4598b60e62c89c0f5, type: 3}
   minHealthIncrease: 10
   maxHealthIncrease: 100
   minArmorIncrease: 20
   maxArmorIncrease: 50
-  minManaIncrease: 10
+  minManaIncrease: 75
   maxManaIncrease: 200

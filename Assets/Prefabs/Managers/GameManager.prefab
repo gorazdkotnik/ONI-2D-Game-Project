@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1400193904467024066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1400193904467024064}
+  - component: {fileID: 1400193904467024067}
+  - component: {fileID: 1400193904467024065}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1400193904467024064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400193904467024066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1400193904467024067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400193904467024066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb087126f21638941859c31e95c7a3a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightBound: 55
+  leftBound: -55
+  yPosition: 10
+  parentEnemies: {fileID: 0}
+  parentBosses: {fileID: 0}
+  maxEnemies: 12
+  maxBosses: 1
+  spawnRate: 1
+  bossSpawnRate: 10
+  enemyPrefabs:
+  - {fileID: 7990764176384555860, guid: 253928abcb0c0a246909c08bb9d71e37, type: 3}
+  - {fileID: 7990764176384555860, guid: 7c1813e1dd13b8f4db17989098dce35e, type: 3}
+  - {fileID: 7990764176384555860, guid: 81d703cdee037df4d8c7ad0bac5ef951, type: 3}
+  bossesPrefabs:
+  - {fileID: 7990764176384555860, guid: de4bb41a9bf939b4b9f55f4f682a1670, type: 3}
+  - {fileID: 7990764176384555860, guid: 28b68cb08a050bd44b839e4fe3de59a0, type: 3}
+  - {fileID: 7990764176384555860, guid: 53e6b18614834b84f817a0f29d87ffa6, type: 3}
+--- !u!114 &1400193904467024065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400193904467024066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0629bcbfd3c59a409e2bc279e3a8c4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightBound: 55
+  leftBound: -55
+  yPosition: 10
+  parentItems: {fileID: 0}
+  maxItems: 15
+  spawnRate: 1
+  minScale: 2
+  maxScale: 5
+  itemPrefabs:
+  - {fileID: 4130166260074396730, guid: 50aa60a8195016d48aa5846fa3a086a2, type: 3}
+  - {fileID: 4105105676916055883, guid: 89b5f07c90d332e48b33d6b96825559a, type: 3}
+  - {fileID: 6872738554542432672, guid: c9d25924a807aa241b53fed23ecaef79, type: 3}

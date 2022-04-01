@@ -42,11 +42,6 @@ public class ItemCollision : MonoBehaviour
     }
 
     void HandleManaPotion(Collider2D other) {
-        // if health is full return
-        if (playerAttack.IsManaFull()) {
-            return;
-        }
-
         // increase mana betwen min an max value
         float manaIncrease = Random.Range(minManaIncrease, maxManaIncrease);
         playerAttack.UpdateMana(manaIncrease);
@@ -56,11 +51,6 @@ public class ItemCollision : MonoBehaviour
     }
 
     void HandleHealthPotion(Collider2D other) {
-        // if health is full return
-        if (playerHealth.IsHealthFull()) {
-            return;
-        }
-
         // increase health betwen min an max value
         float healthIncrease = Random.Range(minHealthIncrease, maxHealthIncrease);
         playerHealth.UpdateHealth(healthIncrease);
@@ -70,11 +60,6 @@ public class ItemCollision : MonoBehaviour
     }
 
     void HandleArmor(Collider2D other) {
-        // if armor is full return
-        if (playerHealth.IsArmorFull()) {
-            return;
-        }
-
         // increase armor betwen min an max value
         float armorIncrease = Random.Range(minArmorIncrease, maxArmorIncrease);
         playerHealth.UpdateArmor(armorIncrease);
