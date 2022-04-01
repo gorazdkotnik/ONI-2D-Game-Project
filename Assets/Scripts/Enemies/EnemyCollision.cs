@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class EnemyCollision : MonoBehaviour
 {
+    AudioManager audioManager;
+
     [Header("Health Bar")]
     [SerializeField] GameObject healthBar;
 
@@ -18,13 +20,14 @@ public class EnemyCollision : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "FireBall")
         {
-            FindObjectOfType<AudioManager>().Play("EnemyHit");
+            audioManager.Play("EnemyHit");
 
             GameObject effect = Instantiate(hitEffect, transform.position + new Vector3(0f, 0f, 0f), Quaternion.identity);
             Destroy(effect, 1f);

@@ -89,18 +89,17 @@ public class PlayerHealth : MonoBehaviour
 
     void PlayerCollisionHandler(Collision2D collision, float damage)
     {
-        if (currentArmor > 0f)
-        {
+        if (currentArmor > 0f) {
             if (currentArmor - damage >= 0f)
             {
                 currentArmor -= damage;
-            } else
-            {
-                currentArmor = 0;
-                currentHealth = Mathf.Abs(currentArmor - damage);
             }
-        } else
-        {
+            else
+            {
+                currentHealth -= Mathf.Abs(currentArmor - damage);
+                currentArmor = 0f;
+            }
+        } else {
             currentHealth -= damage;
         }
 
