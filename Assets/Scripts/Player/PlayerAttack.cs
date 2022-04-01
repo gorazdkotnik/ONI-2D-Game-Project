@@ -90,20 +90,20 @@ public class PlayerAttack : MonoBehaviour
             return;
         }       
 
-        if (Input.GetKeyDown(KeyCode.Q) && Time.time > qLastShoot + qAttackRate && enoughMana(qManaCost))
+        if (Input.GetKeyDown(KeyCode.Q) && Time.time > qLastShoot + qAttackRate && EnoughMana(qManaCost))
         {
             qLastShoot = Time.time;
             isAttacking = true;
 
-            updateMana(qManaCost);
+            UpdateMana(-qManaCost);
 
             Shoot();
-        } else if (Input.GetKeyDown(KeyCode.E) && Time.time > eLastShoot + eAttackRate && enoughMana(eManaCost))
+        } else if (Input.GetKeyDown(KeyCode.E) && Time.time > eLastShoot + eAttackRate && EnoughMana(eManaCost))
         {
             qLastShoot = Time.time;
             eLastShoot = Time.time;
 
-            updateMana(eManaCost);
+            UpdateMana(-eManaCost);
 
             isAttacking = true;
             Shoot();
@@ -118,7 +118,7 @@ public class PlayerAttack : MonoBehaviour
 
     void SpecialAttackController()
     {
-        if (AbleToSpecialAttack() && enoughMana(rManaCost) && Input.GetKey(KeyCode.R) && Time.time > rLastShoot + rAttackRate)
+        if (AbleToSpecialAttack() && EnoughMana(rManaCost) && Input.GetKey(KeyCode.R) && Time.time > rLastShoot + rAttackRate)
         {
             isSpecialAttacking = true;
             animator.SetBool("isJumping", isSpecialAttacking);
@@ -127,7 +127,7 @@ public class PlayerAttack : MonoBehaviour
             qLastShoot = Time.time;
             eLastShoot = Time.time;
 
-            updateMana(rManaCost);
+            UpdateMana(-rManaCost);
 
             rb2d.AddForce(new Vector2(0f, specialAttackForce), ForceMode2D.Impulse);
 
@@ -207,13 +207,25 @@ public class PlayerAttack : MonoBehaviour
         return !isSpecialAttacking && !isAttacking;
     }
 
-    bool enoughMana(float manaCost) {
+    bool EnoughMana(float manaCost) {
         return currentMana >= manaCost;
     }
 
-    void updateMana(float manaCost)
+    public bool IsManaFull()
     {
-        currentMana -= manaCost;
+        return currentMana >= maxMana;
+    }
+
+    public void UpdateMana(float manaCost)
+    {
+        if (currentMana + manaCost > maxMana)
+        {
+            currentMana = maxMana;
+        }
+        else
+        {
+            currentMana += manaCost;
+        }
     }
 
     // regenerate mana every few seconds
@@ -227,14 +239,14 @@ public class PlayerAttack : MonoBehaviour
 
     void ShowDoableActions()
     {
-        if(!AbleToAttack() || !enoughMana(qManaCost))
+        if(!AbleToAttack() || !EnoughMana(qManaCost))
         {
             qBar.GetComponent<Image>().color = cooldownBarColor;
         } else {
             qBar.GetComponent<Image>().color = baseBarColor;
         }
 
-        if(!AbleToAttack() || !enoughMana(eManaCost))
+        if(!AbleToAttack() || !EnoughMana(eManaCost))
         {
             eBar.GetComponent<Image>().color = cooldownBarColor;
         } else {
@@ -242,7 +254,7 @@ public class PlayerAttack : MonoBehaviour
         }
         
 
-        if (!AbleToSpecialAttack() || !enoughMana(rManaCost))
+        if (!AbleToSpecialAttack() || !EnoughMana(rManaCost))
         {
             rBar.GetComponent<Image>().color = cooldownBarColor;
         }

@@ -25,7 +25,7 @@ TagManager:
   - Player
   - Background
   - Post Processing
-  - 
+  - Items
   - 
   - 
   - 
@@ -58,6 +58,12 @@ TagManager:
     locked: 0
   - name: Platforms
     uniqueID: 258574467
+    locked: 0
+  - name: Items
+    uniqueID: 675776101
+    locked: 0
+  - name: Enemies
+    uniqueID: 2993071219
     locked: 0
   - name: Player
     uniqueID: 45725271

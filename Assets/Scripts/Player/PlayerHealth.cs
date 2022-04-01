@@ -113,6 +113,38 @@ public class PlayerHealth : MonoBehaviour
         rb2d.AddForce(new Vector2((playerController.facingRight ? -1 : 1) * collisionBounceX, collisionBounceY), ForceMode2D.Impulse);
     }
 
+    public bool IsHealthFull() {
+        return currentHealth == maxHealth;
+    }
+
+    public bool IsArmorFull() {
+        return currentArmor == maxArmor;
+    }
+    
+    public void UpdateHealth(float amount)
+    {
+        if (currentHealth + amount <= maxHealth)
+        {
+            currentHealth += amount;
+        }
+        else
+        {
+            currentHealth = maxHealth;
+        }
+    }
+
+    public void UpdateArmor(float amount)
+    {
+        if (currentArmor + amount <= maxArmor)
+        {
+            currentArmor += amount;
+        }
+        else
+        {
+            currentArmor = maxArmor;
+        }
+    }
+
     void PlayHitEffect()
     {
         GameObject effect = Instantiate(hitEffect, transform.position + new Vector3(0f, 0f, 0f), Quaternion.identity);

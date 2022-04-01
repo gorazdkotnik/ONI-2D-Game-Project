@@ -112,7 +112,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.75
   m_Color: {r: 0.8301887, g: 0.6499377, b: 0.254539, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 0.75
   m_LightVolumeOpacity: 0.4
   m_ApplyToSortingLayers: 000000006f136ab569af48048388690f57b6b902
   m_LightCookieSprite: {fileID: 0}
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 6.5
+  m_PointLightOuterRadius: 10
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -364,6 +364,7 @@ GameObject:
   - component: {fileID: 1349787210}
   - component: {fileID: 3347278558723747257}
   - component: {fileID: 946186788}
+  - component: {fileID: 618094891}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -428,7 +429,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 45725271
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 20daa800a641d9e4cae18a06630db1ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -537,6 +538,14 @@ MonoBehaviour:
   qBar: {fileID: 0}
   rBar: {fileID: 0}
   eBar: {fileID: 0}
+  manaBar: {fileID: 0}
+  baseBarColor: {r: 1, g: 1, b: 1, a: 1}
+  cooldownBarColor: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
+  manaRegenRate: 0.5
+  maxMana: 200
+  qManaCost: 10
+  eManaCost: 20
+  rManaCost: 40
   firePoint: {fileID: 348998983}
   crouchFirePoint: {fileID: 1687276281109982842}
   specialAttackPoints: {fileID: 394385303}
@@ -566,8 +575,8 @@ MonoBehaviour:
   respawnScreen: {fileID: 0}
   maxHealth: 100
   maxArmor: 100
-  collisionBounceY: 30
-  collisionBounceX: 30
+  collisionBounceY: 15
+  collisionBounceX: 20
   hitEffect: {fileID: 6049784389114383512, guid: 264a1d7e7922d4e4b9e1d6126327d23a, type: 3}
 --- !u!82 &946186788
 AudioSource:
@@ -665,3 +674,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &618094891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8762611834366962870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421a505c0ac53b5479b3b574423fc079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHealthIncrease: 10
+  maxHealthIncrease: 100
+  minArmorIncrease: 20
+  maxArmorIncrease: 50
+  minManaIncrease: 10
+  maxManaIncrease: 200
