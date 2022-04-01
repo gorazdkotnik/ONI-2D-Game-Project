@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyCollision : MonoBehaviour
 {
+    [Header("Health Bar")]
+    [SerializeField] GameObject healthBar;
+
     [Header("Effects")]
     [SerializeField] GameObject hitEffect;
 
@@ -26,6 +30,8 @@ public class EnemyCollision : MonoBehaviour
             Destroy(effect, 1f);
 
             currentHealth -= 20f;
+
+            UpdateHealthBar();
             CheckEnemyDeath();
         }
     }
@@ -36,5 +42,10 @@ public class EnemyCollision : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void UpdateHealthBar()
+    {
+        healthBar.transform.localScale = new Vector3(currentHealth / maxHealth, 1f, 1f);
     }
 }
