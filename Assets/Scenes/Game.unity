@@ -102186,7 +102186,7 @@ MonoBehaviour:
   parentBosses: {fileID: 1293968090}
   maxEnemies: 20
   maxBosses: 1
-  spawnRate: 2
+  spawnRate: 1
   bossSpawnRate: 10
   enemyPrefabs:
   - {fileID: 7990764176384555860, guid: 253928abcb0c0a246909c08bb9d71e37, type: 3}
@@ -102361,6 +102361,10 @@ PrefabInstance:
     - target: {fileID: 3782400575762898781, guid: 36e95e573f9047c499a88cd9966aeb16, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317049642936823818, guid: 36e95e573f9047c499a88cd9966aeb16, type: 3}
+      propertyPath: m_Maskable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36e95e573f9047c499a88cd9966aeb16, type: 3}

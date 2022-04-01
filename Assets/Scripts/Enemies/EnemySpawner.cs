@@ -23,10 +23,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject[] enemyPrefabs;
     [SerializeField] GameObject[] bossesPrefabs;
 
-    void Start() {
-        SpawnEnemiesAtStart();
-    }
-
     void Update()
     {
         SpawnEnemies();

@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7424350531385560945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0077, y: 0.0023, z: 0}
+  m_LocalPosition: {x: -0.0077, y: 0.018966667, z: 0}
   m_LocalScale: {x: 0.10000001, y: 0.030000001, z: 1}
   m_Children:
   - {fileID: 5693250764837649998}
@@ -409,5 +409,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1678484c46f0b2b45ba3d3774367d7d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
   moveSpeed: 1
-  maxDistanceTrack: 20
+  maxDistanceTrack: 25
+  isBoss: 1

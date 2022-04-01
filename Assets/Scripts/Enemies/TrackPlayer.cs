@@ -8,8 +8,10 @@ public class TrackPlayer : MonoBehaviour
     GameObject player;
 
     [Header("Options")]
+    [SerializeField] LayerMask groundLayer;
     [SerializeField] float moveSpeed;
     [SerializeField] float maxDistanceTrack = 10f;
+    [SerializeField] bool isBoss = false;
 
     void Start()
     {
@@ -24,6 +26,8 @@ public class TrackPlayer : MonoBehaviour
     void MoveTowardsPlayer()
     {
         RotateSprite();
+
+        if (!IsGrounded() && !isBoss) return;
 
         float distanceX = player.transform.position.x - transform.position.x;
 
@@ -50,5 +54,21 @@ public class TrackPlayer : MonoBehaviour
             enemyLocalScale.x = (transform.localScale.x > 0 ? 1 : -1) * transform.localScale.x;
         }
         transform.localScale = enemyLocalScale;
+    }
+
+        public bool IsGrounded()
+    {
+        Vector2 position = transform.position;
+        Vector2 direction = Vector2.down;
+        float distance = 1.2f;
+
+        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
+
+        if (hit.collider != null)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
