@@ -102184,7 +102184,7 @@ MonoBehaviour:
   yPosition: 10
   parentEnemies: {fileID: 349048914}
   parentBosses: {fileID: 1293968090}
-  maxEnemies: 20
+  maxEnemies: 25
   maxBosses: 1
   spawnRate: 2
   bossSpawnRate: 10
