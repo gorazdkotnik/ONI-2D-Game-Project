@@ -10,6 +10,9 @@ TagManager:
   - Golem
   - Zombie
   - Golem Boss
+  - Health Potion
+  - Mana Potion
+  - Armor
   layers:
   - Default
   - TransparentFX
