@@ -102184,7 +102184,7 @@ MonoBehaviour:
   yPosition: 10
   parentEnemies: {fileID: 349048914}
   parentBosses: {fileID: 1293968090}
-  maxEnemies: 25
+  maxEnemies: 20
   maxBosses: 1
   spawnRate: 2
   bossSpawnRate: 10
@@ -102646,6 +102646,14 @@ PrefabInstance:
       propertyPath: respawnScreen
       value: 
       objectReference: {fileID: 437015862}
+    - target: {fileID: 3347278558723747257, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: collisionBounceX
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3347278558723747257, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: collisionBounceY
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8762611834366962870, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: m_Name
       value: Player
