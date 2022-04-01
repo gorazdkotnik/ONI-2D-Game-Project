@@ -31,6 +31,7 @@ public class TrackPlayer : MonoBehaviour
 
         float distanceX = player.transform.position.x - transform.position.x;
 
+
         Vector2 distance = new Vector2(distanceX, 0f);
         distance = distance.normalized;
 
@@ -56,11 +57,11 @@ public class TrackPlayer : MonoBehaviour
         transform.localScale = enemyLocalScale;
     }
 
-        public bool IsGrounded()
+    public bool IsGrounded()
     {
         Vector2 position = transform.position;
         Vector2 direction = Vector2.down;
-        float distance = 1.2f;
+        float distance = 1f;
 
         RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
 
