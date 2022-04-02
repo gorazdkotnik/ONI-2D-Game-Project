@@ -597,10 +597,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1293968090}
     - target: {fileID: 1400193904467024067, guid: 0dbf7406545c9b145b5f9ae1fa430067, type: 3}
-      propertyPath: bossSpawnRate
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1400193904467024067, guid: 0dbf7406545c9b145b5f9ae1fa430067, type: 3}
       propertyPath: parentEnemies
       value: 
       objectReference: {fileID: 349048914}
@@ -773,7 +769,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 932925480, guid: 30959c7ed48c8d044a31e1c54e7c5a5c, type: 3}
       propertyPath: m_ColliderMask.m_Bits
-      value: 3903
+      value: 7999
       objectReference: {fileID: 0}
     - target: {fileID: 5447043856893609405, guid: 30959c7ed48c8d044a31e1c54e7c5a5c, type: 3}
       propertyPath: m_RootOrder

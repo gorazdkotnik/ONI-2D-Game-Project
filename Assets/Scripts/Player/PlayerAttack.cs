@@ -53,7 +53,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] GameObject rEffect;
 
     [HideInInspector] public bool isSpecialAttacking = false;
-    bool isAttacking = false;
+    [HideInInspector] public bool isAttacking = false;
 
     float[] specialAttackFireBallRotationsFR = new float[5] {-90f, -60f, -120f, 0f, 180f};
     float[] specialAttackFireBallRotationsFL = new float[5] { -90f, -120f, -60f, 180f, 0f };

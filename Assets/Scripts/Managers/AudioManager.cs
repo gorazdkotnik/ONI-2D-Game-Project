@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class AudioManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
         foreach (Sound s in sounds)
         {
@@ -59,5 +62,9 @@ public class AudioManager : MonoBehaviour
 
         if (s != null) return s.source.isPlaying;
         return false;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+      StopAll();
     }
 }

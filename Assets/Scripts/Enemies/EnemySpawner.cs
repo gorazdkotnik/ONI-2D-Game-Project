@@ -25,6 +25,8 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
+        if (!ParentObjects()) return;
+
         SpawnEnemies();
         SpawnBosses();
     }
@@ -82,6 +84,19 @@ public class EnemySpawner : MonoBehaviour
                 SpawnBoss();
                 lastBossSpawn = Time.time;
             }
+        }
+    }
+
+    bool ParentObjects() {
+        return parentEnemies != null && parentBosses != null;
+    }
+
+    void OnEnable() {
+        if (parentEnemies == null) {
+            parentEnemies = GameObject.Find("Enemies");
+        }
+        if (parentBosses == null) {
+            parentBosses = GameObject.Find("Bosses");
         }
     }
 }

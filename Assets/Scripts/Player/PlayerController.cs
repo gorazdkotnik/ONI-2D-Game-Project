@@ -60,7 +60,8 @@ public class PlayerController : MonoBehaviour
 
         if (moveHorizontal > 0.1f || moveHorizontal < -0.1f)
         {
-            
+            StopAttacking();
+
             isMoving = true;
             facingRight = moveHorizontal > 0f;
 
@@ -153,6 +154,11 @@ public class PlayerController : MonoBehaviour
     bool isSpecialAttacking()
     {
         return playerAttack && playerAttack.isSpecialAttacking;
+    }
+
+    void StopAttacking() {
+        playerAttack.isAttacking = false;
+        animator.SetBool("isAttacking", false);
     }
 
     public bool IsGrounded()

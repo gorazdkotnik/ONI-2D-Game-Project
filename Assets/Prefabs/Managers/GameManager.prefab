@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1400193904467024064}
   - component: {fileID: 1400193904467024067}
   - component: {fileID: 1400193904467024065}
+  - component: {fileID: 1541117413}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -52,7 +53,7 @@ MonoBehaviour:
   maxEnemies: 12
   maxBosses: 1
   spawnRate: 1
-  bossSpawnRate: 10
+  bossSpawnRate: 30
   enemyPrefabs:
   - {fileID: 7990764176384555860, guid: 253928abcb0c0a246909c08bb9d71e37, type: 3}
   - {fileID: 7990764176384555860, guid: 7c1813e1dd13b8f4db17989098dce35e, type: 3}
@@ -85,3 +86,15 @@ MonoBehaviour:
   - {fileID: 4130166260074396730, guid: 50aa60a8195016d48aa5846fa3a086a2, type: 3}
   - {fileID: 4105105676916055883, guid: 89b5f07c90d332e48b33d6b96825559a, type: 3}
   - {fileID: 6872738554542432672, guid: c9d25924a807aa241b53fed23ecaef79, type: 3}
+--- !u!114 &1541117413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400193904467024066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8df4770214fdd4abaeeaaf59365a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

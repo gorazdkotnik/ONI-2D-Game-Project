@@ -41,6 +41,7 @@ public class ItemCollision : MonoBehaviour
         }
     }
 
+
     void HandleManaPotion(Collider2D other) {
         // increase mana betwen min an max value
         float manaIncrease = Random.Range(minManaIncrease, maxManaIncrease);
