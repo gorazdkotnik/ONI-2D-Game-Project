@@ -485,6 +485,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform Light (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2637767426176911455, guid: 81c009d41515e704798fb4bc97f0579f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81c009d41515e704798fb4bc97f0579f, type: 3}
 --- !u!4 &972852632641175333 stripped
@@ -1117,6 +1121,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform Light (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 2637767426176911455, guid: 81c009d41515e704798fb4bc97f0579f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81c009d41515e704798fb4bc97f0579f, type: 3}
 --- !u!4 &972852634067784680 stripped
@@ -1137,7 +1145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2637767426176911448, guid: 81c009d41515e704798fb4bc97f0579f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 69.25
+      value: 64.75
       objectReference: {fileID: 0}
     - target: {fileID: 2637767426176911448, guid: 81c009d41515e704798fb4bc97f0579f, type: 3}
       propertyPath: m_LocalPosition.y

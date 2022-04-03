@@ -481,7 +481,7 @@ MonoBehaviour:
   jumpEffectPoint: {fileID: 577246652}
   jumpEffect: {fileID: 1133824071906413143, guid: 8659230d41ea3304ab258e78e9a82663, type: 3}
   jumpForce: 2000
-  jumpRate: 0.75
+  jumpRate: 0.6
   moveSpeed: 80
   crouchSpeed: 50
   effectRate: 0.4
@@ -541,7 +541,7 @@ MonoBehaviour:
   manaBar: {fileID: 0}
   baseBarColor: {r: 1, g: 1, b: 1, a: 1}
   cooldownBarColor: {r: 1, g: 0, b: 0, a: 1}
-  manaRegenRate: 2
+  manaRegenRate: 5
   maxMana: 200
   qManaCost: 10
   eManaCost: 20
@@ -553,11 +553,12 @@ MonoBehaviour:
   bigFireBall: {fileID: 5150434822059989233, guid: ce31946767340914fb9ec7dbdb56386d, type: 3}
   bulletForce: 15
   qAttackRate: 0.5
-  eAttackRate: 3
+  eAttackRate: 2
   specialAttackForce: 75
-  rAttackRate: 10
+  rAttackRate: 5
   rEffect: {fileID: 8609496708351718217, guid: 65da2f8081db52c4c85e5fb41ffbbe2f, type: 3}
   isSpecialAttacking: 0
+  isAttacking: 0
 --- !u!114 &3347278558723747257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,9 +589,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 038a6b188153d2947b84bb37295b62f0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: cfacf6301e782554f8d38d2d08c00cad, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -686,6 +687,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421a505c0ac53b5479b3b574423fc079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinText: {fileID: 0}
+  gemText: {fileID: 0}
   itemPickupEffect: {fileID: 3043335673364893450, guid: d60192433829f7f4598b60e62c89c0f5, type: 3}
   minHealthIncrease: 10
   maxHealthIncrease: 100

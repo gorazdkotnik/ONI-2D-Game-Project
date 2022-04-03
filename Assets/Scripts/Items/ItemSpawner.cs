@@ -24,8 +24,6 @@ public class ItemSpawner : MonoBehaviour
 
     void Update()
     {
-        if (!ParentObjects()) return;
-
         SpawnItems();
     }
 
@@ -60,16 +58,6 @@ public class ItemSpawner : MonoBehaviour
                 SpawnItem();
                 lastSpawn = Time.time;
             }
-        }
-    }
-
-    bool ParentObjects() {
-        return parentItems != null;
-    }
-
-    void OnEnable() {
-        if (parentItems == null) {
-            parentItems = GameObject.Find("Items");
         }
     }
 }
