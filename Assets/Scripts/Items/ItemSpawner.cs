@@ -35,6 +35,11 @@ public class ItemSpawner : MonoBehaviour
 
         GameObject randomItem = itemPrefabs[randomIndex];
 
+        if (randomItem.tag == "Gem")
+        {
+            randomItem = itemPrefabs[Random.Range(0, itemPrefabs.Length)];
+        }
+
         Vector3 spawnPosition = new Vector3(Random.Range(leftBound, rightBound), yPosition, transform.position.z);
         GameObject newGameObject = Instantiate(randomItem, spawnPosition, Quaternion.identity, parentItems.transform);
 

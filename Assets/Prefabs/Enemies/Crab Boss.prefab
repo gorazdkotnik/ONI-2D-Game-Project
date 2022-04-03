@@ -341,7 +341,7 @@ Rigidbody2D:
   m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.5
+  m_GravityScale: 0.2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -396,7 +396,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 7599103050689160006}
   hitEffect: {fileID: 6049784389114383512, guid: bbb9774195e3a3c47843c4004a15c00a, type: 3}
+  coinPrefab: {fileID: 6872738554542432672, guid: a80f07f5f3df5d742939e92c36d97792, type: 3}
+  gemPrefab: {fileID: 6872738554542432672, guid: de6ab49dd3445ee4784a7074ed050ca3, type: 3}
   maxHealth: 200
+  minCoins: 3
+  maxCoins: 6
+  minGems: 1
+  maxGems: 3
 --- !u!114 &1869836119
 MonoBehaviour:
   m_ObjectHideFlags: 0

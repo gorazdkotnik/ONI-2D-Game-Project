@@ -231,7 +231,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 8890935221151989889}
   hitEffect: {fileID: 6049784389114383512, guid: bbb9774195e3a3c47843c4004a15c00a, type: 3}
+  coinPrefab: {fileID: 6872738554542432672, guid: a80f07f5f3df5d742939e92c36d97792, type: 3}
+  gemPrefab: {fileID: 6872738554542432672, guid: de6ab49dd3445ee4784a7074ed050ca3, type: 3}
   maxHealth: 40
+  minCoins: 1
+  maxCoins: 3
+  minGems: 0
+  maxGems: 0
 --- !u!114 &1869836119
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -199,6 +199,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3782400575685974116, guid: 36e95e573f9047c499a88cd9966aeb16, type: 3}
   m_PrefabInstance: {fileID: 3782400575803109774}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &224889465 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 361758557653301607, guid: 36e95e573f9047c499a88cd9966aeb16, type: 3}
+  m_PrefabInstance: {fileID: 3782400575803109774}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &349048914 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2962101020098066169, guid: 988b5cb56e1f4a74e8ceb741041d9f3f, type: 3}
@@ -286,6 +297,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &817531622 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1417034072476336617, guid: 36e95e573f9047c499a88cd9966aeb16, type: 3}
+  m_PrefabInstance: {fileID: 3782400575803109774}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &911141611 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8762611834366962871, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
@@ -588,6 +610,18 @@ PrefabInstance:
       propertyPath: parentItems
       value: 
       objectReference: {fileID: 1662637517}
+    - target: {fileID: 1400193904467024065, guid: 0dbf7406545c9b145b5f9ae1fa430067, type: 3}
+      propertyPath: itemPrefabs.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193904467024065, guid: 0dbf7406545c9b145b5f9ae1fa430067, type: 3}
+      propertyPath: itemPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 6872738554542432672, guid: a80f07f5f3df5d742939e92c36d97792, type: 3}
+    - target: {fileID: 1400193904467024065, guid: 0dbf7406545c9b145b5f9ae1fa430067, type: 3}
+      propertyPath: itemPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 6872738554542432672, guid: de6ab49dd3445ee4784a7074ed050ca3, type: 3}
     - target: {fileID: 1400193904467024066, guid: 0dbf7406545c9b145b5f9ae1fa430067, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -5813,6 +5847,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 618094891, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: gemText
+      value: 
+      objectReference: {fileID: 817531622}
+    - target: {fileID: 618094891, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 224889465}
     - target: {fileID: 946186788, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: m_Volume
       value: 0.5

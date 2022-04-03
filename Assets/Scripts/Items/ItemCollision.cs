@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ItemCollision : MonoBehaviour
 {
     PlayerAttack playerAttack;
     PlayerHealth playerHealth;
+
+    [Header("UI")]
+    [SerializeField] TextMeshProUGUI coinText;
+    [SerializeField] TextMeshProUGUI gemText;
+    int coins = 0;
+    int gems = 0;
+
 
     [Header("Effects")]
     [SerializeField] GameObject itemPickupEffect;
@@ -38,6 +46,12 @@ public class ItemCollision : MonoBehaviour
             case "armor": 
                 HandleArmor(other);
                 break;    
+            case "coin":
+                HandleCoin(other);
+                break;
+            case "gem":
+                HandleGem(other);
+                break;
         }
     }
 
@@ -67,6 +81,22 @@ public class ItemCollision : MonoBehaviour
         Destroy(other.gameObject);
 
         PlayEffect(transform.position);
+    }
+
+    void HandleCoin(Collider2D other) {
+        Destroy(other.gameObject);
+
+        coins++;
+        coinText.text = coins.ToString();
+        PlayerPrefs.SetInt("coins", coins);
+    }
+
+    void HandleGem(Collider2D other) {
+        Destroy(other.gameObject);
+
+        gems++;
+        gemText.text = gems.ToString();
+        PlayerPrefs.SetInt("gems", gems);
     }
 
     void PlayEffect(Vector3 position) {

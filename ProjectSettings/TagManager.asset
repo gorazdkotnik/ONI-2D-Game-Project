@@ -13,6 +13,8 @@ TagManager:
   - Health Potion
   - Mana Potion
   - Armor
+  - Coin
+  - Gem
   layers:
   - Default
   - TransparentFX
