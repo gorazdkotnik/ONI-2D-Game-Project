@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 84426eceec734994a9094fe79b26ba3e, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1899,30 +1899,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 520700589, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: m_Intensity
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 520700589, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 520700589, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 520700589, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[4]
-      value: 675776101
-      objectReference: {fileID: 0}
-    - target: {fileID: 520700589, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[5]
-      value: -1301896077
-      objectReference: {fileID: 0}
-    - target: {fileID: 520700589, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[6]
-      value: 45725271
-      objectReference: {fileID: 0}
     - target: {fileID: 618094891, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: gemText
       value: 
@@ -1949,7 +1925,7 @@ PrefabInstance:
       objectReference: {fileID: 2118397605}
     - target: {fileID: 1349787210, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: manaRegenRate
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3347278558723747257, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: armorBar
