@@ -8,6 +8,8 @@ public class Sound
 
     public AudioClip clip;
 
+    public AudioMixerGroup group;
+
     [Range(0f, 1)]
     public float volume = 1f;
 

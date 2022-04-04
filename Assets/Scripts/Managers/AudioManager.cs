@@ -2,9 +2,11 @@ using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField] AudioMixer audioMixer;
     [SerializeField] Sound[] sounds;
 
     public static AudioManager instance;
@@ -34,7 +36,12 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = s.group;
         }
+    }
+
+    void Start() {
+        audioMixer.SetFloat("volume", PlayerPrefs.HasKey("volume") ? PlayerPrefs.GetFloat("volume") : 0f);
     }
     
     public void Play(string name)
@@ -46,9 +53,11 @@ public class AudioManager : MonoBehaviour
 
     public void Stop(string name)
     {
+        if (sounds == null) return;
+
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
-        if (s != null) s.source.Stop();
+        if (s != null && s.source != null) s.source.Stop();
     }
 
     public void StopAll()

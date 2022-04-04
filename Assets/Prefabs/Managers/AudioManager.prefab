@@ -43,45 +43,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c242968e837939489bbd1c0442b6098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: a7e28b2c6047c5843adede7c8a50c797, type: 2}
   sounds:
   - name: PlayerDeath
     clip: {fileID: 8300000, guid: d9226bfa1bafd1c459882755070e20f4, type: 3}
+    group: {fileID: 24300002, guid: a7e28b2c6047c5843adede7c8a50c797, type: 2}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: PlayerHit
     clip: {fileID: 8300000, guid: 8b15ebf3d97d51e4d84fc1b9dc6aad42, type: 3}
+    group: {fileID: 24300002, guid: a7e28b2c6047c5843adede7c8a50c797, type: 2}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Jump
     clip: {fileID: 8300000, guid: cfc3eca128c7ea04497a7d86ec8ce01c, type: 3}
+    group: {fileID: 24300002, guid: a7e28b2c6047c5843adede7c8a50c797, type: 2}
     volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FireCracker
     clip: {fileID: 8300000, guid: 42682c11fe7c61c409301aac06683a5b, type: 3}
+    group: {fileID: 24300002, guid: a7e28b2c6047c5843adede7c8a50c797, type: 2}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: EnemyHit
     clip: {fileID: 8300000, guid: a3d24ba57e44a5c49bc1da43e5127479, type: 3}
+    group: {fileID: 24300002, guid: a7e28b2c6047c5843adede7c8a50c797, type: 2}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: EnemyDeath
     clip: {fileID: 8300000, guid: cde49226ad090264da92a75de53952e8, type: 3}
+    group: {fileID: 24300002, guid: a7e28b2c6047c5843adede7c8a50c797, type: 2}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Run
     clip: {fileID: 8300000, guid: f4421a02c025d534eba2ca8d657151e3, type: 3}
+    group: {fileID: 24300002, guid: a7e28b2c6047c5843adede7c8a50c797, type: 2}
     volume: 1
     pitch: 1
     loop: 1
