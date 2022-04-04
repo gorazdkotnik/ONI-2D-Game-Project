@@ -1899,6 +1899,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 520700589, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 520700589, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[0]
+      value: -1301896077
+      objectReference: {fileID: 0}
     - target: {fileID: 618094891, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: gemText
       value: 
@@ -1925,7 +1933,7 @@ PrefabInstance:
       objectReference: {fileID: 2118397605}
     - target: {fileID: 1349787210, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: manaRegenRate
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3347278558723747257, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: armorBar
