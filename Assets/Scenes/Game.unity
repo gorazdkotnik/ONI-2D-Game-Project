@@ -607,8 +607,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1400193904467024065, guid: 0dbf7406545c9b145b5f9ae1fa430067, type: 3}
-      propertyPath: maxItems
-      value: 20
+      propertyPath: maxScale
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193904467024065, guid: 0dbf7406545c9b145b5f9ae1fa430067, type: 3}
+      propertyPath: minScale
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1400193904467024065, guid: 0dbf7406545c9b145b5f9ae1fa430067, type: 3}
       propertyPath: parentItems
@@ -616,7 +620,7 @@ PrefabInstance:
       objectReference: {fileID: 1662637517}
     - target: {fileID: 1400193904467024066, guid: 0dbf7406545c9b145b5f9ae1fa430067, type: 3}
       propertyPath: m_Name
-      value: GameManager
+      value: SpawnManager
       objectReference: {fileID: 0}
     - target: {fileID: 1400193904467024067, guid: 0dbf7406545c9b145b5f9ae1fa430067, type: 3}
       propertyPath: parentBosses
@@ -1925,7 +1929,7 @@ PrefabInstance:
       objectReference: {fileID: 2118397605}
     - target: {fileID: 1349787210, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: manaRegenRate
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3347278558723747257, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: armorBar

@@ -13,7 +13,7 @@ public class ItemSpawner : MonoBehaviour
     [Header("Spawn Settings")]
     [SerializeField] int maxItems = 20;
     [SerializeField] float spawnRate = 1f;
-    [SerializeField] float minScale = 3f;
+    [SerializeField] float minScale = 5f;
     [SerializeField] float maxScale = 10f;
     float lastSpawn = 0f;
 

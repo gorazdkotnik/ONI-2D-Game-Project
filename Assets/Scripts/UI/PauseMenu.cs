@@ -45,7 +45,14 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         pauseMenuUI.SetActive(true);
+
         Time.timeScale = 0f;
         GameIsPaused = true;
+        
+        Invoke("StopSounds", 0.1f);
+    }
+
+    void StopSounds() {
+        FindObjectOfType<AudioManager>().StopAll();
     }
 }
