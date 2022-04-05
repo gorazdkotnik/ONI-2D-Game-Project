@@ -680,6 +680,10 @@ PrefabInstance:
       value: SpawnManager
       objectReference: {fileID: 0}
     - target: {fileID: 1400193904467024067, guid: 0dbf7406545c9b145b5f9ae1fa430067, type: 3}
+      propertyPath: maxEnemies
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193904467024067, guid: 0dbf7406545c9b145b5f9ae1fa430067, type: 3}
       propertyPath: parentBosses
       value: 
       objectReference: {fileID: 1293968090}

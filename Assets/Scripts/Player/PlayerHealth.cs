@@ -5,150 +5,160 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    Rigidbody2D rb2d;
-    PlayerController playerController;
+  Rigidbody2D rb2d;
+  PlayerController playerController;
 
-    [Header("HUD")]
-    [SerializeField] GameObject healthBar;
-    [SerializeField] GameObject armorBar;
+  [Header("HUD")]
+  [SerializeField] GameObject healthBar;
+  [SerializeField] GameObject armorBar;
 
-    [Header("UI")]
-    [SerializeField] GameObject respawnScreen;
+  [Header("UI")]
+  [SerializeField] GameObject respawnScreen;
 
-    [Header("Options")]
-    [SerializeField] float maxHealth = 100f;
-    [SerializeField] float maxArmor = 100f;
-    
-    float currentHealth;
-    float currentArmor;
+  [Header("Options")]
+  [SerializeField] float maxHealth = 100f;
+  [SerializeField] float maxArmor = 100f;
 
-    [SerializeField] float collisionBounceY = 10f;
-    [SerializeField] float collisionBounceX = 50f;
+  float currentHealth;
+  float currentArmor;
 
-    [Header("Effects")]
-    [SerializeField] GameObject hitEffect;
+  [SerializeField] float collisionBounceY = 10f;
+  [SerializeField] float collisionBounceX = 50f;
 
-    void Start()
+  [Header("Effects")]
+  [SerializeField] GameObject hitEffect;
+
+  void Start()
+  {
+    rb2d = GetComponent<Rigidbody2D>();
+    playerController = GetComponent<PlayerController>();
+
+    currentHealth = maxHealth;
+    currentArmor = maxArmor;
+  }
+
+  void Update()
+  {
+    UpdateBars();
+  }
+
+  void UpdateBars()
+  {
+    healthBar.GetComponent<Image>().fillAmount = currentHealth / maxHealth;
+    armorBar.GetComponent<Image>().fillAmount = currentArmor / maxArmor;
+  }
+
+  void OnCollisionEnter2D(Collision2D collision)
+  {
+    switch (collision.gameObject.tag.ToLower())
     {
-        rb2d = GetComponent<Rigidbody2D>();
-        playerController = GetComponent<PlayerController>();
-
-        currentHealth = maxHealth;
-        currentArmor = maxArmor;
+      case "crab":
+        PlayerCollisionHandler(collision, 10f);
+        break;
+      case "golem":
+        PlayerCollisionHandler(collision, 20f);
+        break;
+      case "zombie":
+        PlayerCollisionHandler(collision, 15f);
+        break;
+      case "golem boss":
+        PlayerCollisionHandler(collision, 40f);
+        break;
     }
 
-    void Update()
+    CheckPlayerDeath();
+  }
+
+  void CheckPlayerDeath()
+  {
+    if (currentHealth <= 0)
     {
-        UpdateBars();
-    }
+      FindObjectOfType<AudioManager>().Play("PlayerDeath");
+      EndAllSounds();
 
-    void UpdateBars()
+      Time.timeScale = 0f;
+      respawnScreen.SetActive(true);
+    }
+  }
+
+  void EndAllSounds()
+  {
+    FindObjectOfType<AudioManager>().Stop("Run");
+  }
+
+
+  void PlayerCollisionHandler(Collision2D collision, float damage)
+  {
+    if (currentArmor > 0f)
     {
-        healthBar.GetComponent<Image>().fillAmount = currentHealth / maxHealth;
-        armorBar.GetComponent<Image>().fillAmount = currentArmor / maxArmor;
+      if (currentArmor - damage >= 0f)
+      {
+        currentArmor -= damage;
+      }
+      else
+      {
+        currentHealth -= Mathf.Abs(currentArmor - damage);
+        currentArmor = 0f;
+      }
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
+    else
     {
-        switch(collision.gameObject.tag.ToLower())
-        {
-            case "crab":
-                PlayerCollisionHandler(collision, 10f);
-                break;
-            case "golem":
-                PlayerCollisionHandler(collision, 20f);
-                break;    
-                case "zombie":
-                PlayerCollisionHandler(collision, 15f);
-                break;
-                case "golem boss":
-                PlayerCollisionHandler(collision, 40f);
-                break;
-        }
-
-        CheckPlayerDeath();
+      currentHealth -= damage;
     }
 
-    void CheckPlayerDeath()
+    BouncePlayerBack();
+    PlayHitEffect();
+    FindObjectOfType<AudioManager>().Play("PlayerHit");
+  }
+
+  void BouncePlayerBack()
+  {
+    bool isGrounded = playerController.IsGrounded();
+    rb2d.AddForce(new Vector2((
+        playerController.facingRight
+        ? (isGrounded ? -1 : 1)
+        : (!isGrounded ? 1 : -1)
+        ) * collisionBounceX, collisionBounceY), ForceMode2D.Impulse);
+  }
+
+  public bool IsHealthFull()
+  {
+    return currentHealth == maxHealth;
+  }
+
+  public bool IsArmorFull()
+  {
+    return currentArmor == maxArmor;
+  }
+
+  public void UpdateHealth(float amount)
+  {
+    if (currentHealth + amount <= maxHealth)
     {
-        if (currentHealth <= 0)
-        {
-            FindObjectOfType<AudioManager>().Play("PlayerDeath");
-            EndAllSounds();
-
-            Time.timeScale = 0f;
-            respawnScreen.SetActive(true);
-        }
+      currentHealth += amount;
     }
-
-    void EndAllSounds()
+    else
     {
-        FindObjectOfType<AudioManager>().Stop("Run");
+      currentHealth = maxHealth;
     }
+  }
 
-
-    void PlayerCollisionHandler(Collision2D collision, float damage)
+  public void UpdateArmor(float amount)
+  {
+    if (currentArmor + amount <= maxArmor)
     {
-        if (currentArmor > 0f) {
-            if (currentArmor - damage >= 0f)
-            {
-                currentArmor -= damage;
-            }
-            else
-            {
-                currentHealth -= Mathf.Abs(currentArmor - damage);
-                currentArmor = 0f;
-            }
-        } else {
-            currentHealth -= damage;
-        }
-
-        BouncePlayerBack();
-        PlayHitEffect();
-        FindObjectOfType<AudioManager>().Play("PlayerHit");
+      currentArmor += amount;
     }
-
-    void BouncePlayerBack()
+    else
     {
-        rb2d.AddForce(new Vector2((playerController.facingRight ? -1 : 1) * collisionBounceX, collisionBounceY), ForceMode2D.Impulse);
+      currentArmor = maxArmor;
     }
+  }
 
-    public bool IsHealthFull() {
-        return currentHealth == maxHealth;
-    }
-
-    public bool IsArmorFull() {
-        return currentArmor == maxArmor;
-    }
-    
-    public void UpdateHealth(float amount)
-    {
-        if (currentHealth + amount <= maxHealth)
-        {
-            currentHealth += amount;
-        }
-        else
-        {
-            currentHealth = maxHealth;
-        }
-    }
-
-    public void UpdateArmor(float amount)
-    {
-        if (currentArmor + amount <= maxArmor)
-        {
-            currentArmor += amount;
-        }
-        else
-        {
-            currentArmor = maxArmor;
-        }
-    }
-
-    void PlayHitEffect()
-    {
-        GameObject effect = Instantiate(hitEffect, transform.position + new Vector3(0f, 0f, 0f), Quaternion.identity);
-        Destroy(effect, 1f);
-    }
+  void PlayHitEffect()
+  {
+    GameObject effect = Instantiate(hitEffect, transform.position + new Vector3(0f, 0f, 0f), Quaternion.identity);
+    Destroy(effect, 1f);
+  }
 
 }
