@@ -64,9 +64,22 @@ public class PlayerHealth : MonoBehaviour
       case "golem boss":
         PlayerCollisionHandler(collision, 40f);
         break;
+      case "instant kill":
+        InstantKill();
+        break;
     }
 
     CheckPlayerDeath();
+  }
+
+  void OnTriggerEnter2D(Collider2D other)
+  {
+    switch (other.gameObject.tag.ToLower())
+    {
+      case "instant kill":
+        InstantKill();
+        break;
+    }
   }
 
   void CheckPlayerDeath()
@@ -109,6 +122,12 @@ public class PlayerHealth : MonoBehaviour
     BouncePlayerBack();
     PlayHitEffect();
     FindObjectOfType<AudioManager>().Play("PlayerHit");
+  }
+
+  void InstantKill()
+  {
+    currentArmor = 0f;
+    currentHealth = 0f;
   }
 
   void BouncePlayerBack()

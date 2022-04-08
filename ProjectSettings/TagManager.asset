@@ -15,6 +15,7 @@ TagManager:
   - Armor
   - Coin
   - Gem
+  - Instant Kill
   layers:
   - Default
   - TransparentFX
