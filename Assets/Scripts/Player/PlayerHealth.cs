@@ -18,6 +18,10 @@ public class PlayerHealth : MonoBehaviour
   [Header("Options")]
   [SerializeField] float maxHealth = 100f;
   [SerializeField] float maxArmor = 100f;
+  [SerializeField] LayerMask invisibleWall;
+  [SerializeField] float invisibleWallDamage = 10f;
+  [SerializeField] float invisibleWallDamageRate = 1f;
+  float lastInvisibleWallTouch = 0f;
 
   float currentHealth;
   float currentArmor;
@@ -82,6 +86,27 @@ public class PlayerHealth : MonoBehaviour
     }
   }
 
+  void OnTouchingInvisibleWall()
+  {
+    if (IsInLayerMask(gameObject, invisibleWall))
+    {
+      Debug.Log("Touching invisible wall");
+      if (Time.time - lastInvisibleWallTouch < invisibleWallDamageRate)
+      {
+        return;
+      }
+
+      lastInvisibleWallTouch = Time.time;
+      TakeDamage(invisibleWallDamage);
+    }
+
+  }
+
+  public bool IsInLayerMask(GameObject obj, LayerMask layerMask)
+  {
+    return ((layerMask.value & (1 << obj.layer)) > 0);
+  }
+
   void CheckPlayerDeath()
   {
     if (currentHealth <= 0)
@@ -99,8 +124,15 @@ public class PlayerHealth : MonoBehaviour
     FindObjectOfType<AudioManager>().Stop("Run");
   }
 
-
   void PlayerCollisionHandler(Collision2D collision, float damage)
+  {
+    TakeDamage(damage);
+    BouncePlayerBack();
+    PlayHitEffect();
+    FindObjectOfType<AudioManager>().Play("PlayerHit");
+  }
+
+  void TakeDamage(float damage)
   {
     if (currentArmor > 0f)
     {
@@ -118,10 +150,6 @@ public class PlayerHealth : MonoBehaviour
     {
       currentHealth -= damage;
     }
-
-    BouncePlayerBack();
-    PlayHitEffect();
-    FindObjectOfType<AudioManager>().Play("PlayerHit");
   }
 
   void InstantKill()

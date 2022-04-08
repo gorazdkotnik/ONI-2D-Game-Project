@@ -700,6 +700,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 303434941179914655, guid: 988b5cb56e1f4a74e8ceb741041d9f3f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2962101020568631280, guid: 988b5cb56e1f4a74e8ceb741041d9f3f, type: 3}
       propertyPath: m_Name
       value: Environment
@@ -747,6 +751,10 @@ PrefabInstance:
     - target: {fileID: 2962101020568631287, guid: 988b5cb56e1f4a74e8ceb741041d9f3f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962101021390971801, guid: 988b5cb56e1f4a74e8ceb741041d9f3f, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2962101021390971807, guid: 988b5cb56e1f4a74e8ceb741041d9f3f, type: 3}
       propertyPath: m_Material
@@ -1648,6 +1656,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.00000059604645
       objectReference: {fileID: 0}
+    - target: {fileID: 6303385837955716021, guid: 9f4699bd0ac45b44a9db437b7114a505, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6303385838128010904, guid: 9f4699bd0ac45b44a9db437b7114a505, type: 3}
       propertyPath: m_Name
       value: Camera Config
@@ -1707,6 +1719,10 @@ PrefabInstance:
     - target: {fileID: 6303385838147107035, guid: 9f4699bd0ac45b44a9db437b7114a505, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00000059604645
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303385838147107035, guid: 9f4699bd0ac45b44a9db437b7114a505, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f4699bd0ac45b44a9db437b7114a505, type: 3}
@@ -2008,6 +2024,10 @@ PrefabInstance:
       propertyPath: respawnScreen
       value: 
       objectReference: {fileID: 437015862}
+    - target: {fileID: 3347278558723747257, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: invisibleWall.m_Bits
+      value: 8192
+      objectReference: {fileID: 0}
     - target: {fileID: 8762611834366962870, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2022,7 +2042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762611834366962871, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 8762611834366962871, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: m_LocalPosition.z
