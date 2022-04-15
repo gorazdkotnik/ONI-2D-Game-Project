@@ -688,6 +688,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1293968090}
     - target: {fileID: 1400193904467024067, guid: 0dbf7406545c9b145b5f9ae1fa430067, type: 3}
+      propertyPath: bossSpawnRate
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193904467024067, guid: 0dbf7406545c9b145b5f9ae1fa430067, type: 3}
       propertyPath: parentEnemies
       value: 
       objectReference: {fileID: 349048914}
@@ -2024,6 +2028,14 @@ PrefabInstance:
       propertyPath: respawnScreen
       value: 
       objectReference: {fileID: 437015862}
+    - target: {fileID: 3347278558723747257, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: collisionBounceX
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3347278558723747257, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
+      propertyPath: collisionBounceY
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 3347278558723747257, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: invisibleWall.m_Bits
       value: 8192

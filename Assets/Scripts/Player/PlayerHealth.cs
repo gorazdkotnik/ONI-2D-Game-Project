@@ -127,8 +127,11 @@ public class PlayerHealth : MonoBehaviour
   void PlayerCollisionHandler(Collision2D collision, float damage)
   {
     TakeDamage(damage);
-    BouncePlayerBack();
+
+    BouncePlayerBack(collision);
+
     PlayHitEffect();
+
     FindObjectOfType<AudioManager>().Play("PlayerHit");
   }
 
@@ -158,14 +161,13 @@ public class PlayerHealth : MonoBehaviour
     currentHealth = 0f;
   }
 
-  void BouncePlayerBack()
+  void BouncePlayerBack(Collision2D collision)
   {
-    bool isGrounded = playerController.IsGrounded();
-    rb2d.AddForce(new Vector2((
-        playerController.facingRight
-        ? (isGrounded ? -1 : 1)
-        : (!isGrounded ? 1 : -1)
-        ) * collisionBounceX, collisionBounceY), ForceMode2D.Impulse);
+    Vector2 bounceDirection = collision.contacts[0].normal;
+    bounceDirection.x = bounceDirection.x * collisionBounceX;
+    bounceDirection.y = bounceDirection.y * collisionBounceY;
+
+    rb2d.velocity = bounceDirection;
   }
 
   public bool IsHealthFull()
