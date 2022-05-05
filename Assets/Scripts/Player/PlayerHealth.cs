@@ -44,6 +44,7 @@ public class PlayerHealth : MonoBehaviour
   void Update()
   {
     UpdateBars();
+    OnTouchingInvisibleWall();
   }
 
   void UpdateBars()
@@ -88,23 +89,15 @@ public class PlayerHealth : MonoBehaviour
 
   void OnTouchingInvisibleWall()
   {
-    if (IsInLayerMask(gameObject, invisibleWall))
+    if (GetComponent<CapsuleCollider2D>().IsTouchingLayers(LayerMask.GetMask("Invisible Wall")))
     {
-      Debug.Log("Touching invisible wall");
-      if (Time.time - lastInvisibleWallTouch < invisibleWallDamageRate)
+      if (Time.time - lastInvisibleWallTouch > invisibleWallDamageRate)
       {
-        return;
+        FindObjectOfType<AudioManager>().Play("PlayerHit");
+        lastInvisibleWallTouch = Time.time;
+        TakeDamage(invisibleWallDamage);
       }
-
-      lastInvisibleWallTouch = Time.time;
-      TakeDamage(invisibleWallDamage);
     }
-
-  }
-
-  public bool IsInLayerMask(GameObject obj, LayerMask layerMask)
-  {
-    return ((layerMask.value & (1 << obj.layer)) > 0);
   }
 
   void CheckPlayerDeath()
