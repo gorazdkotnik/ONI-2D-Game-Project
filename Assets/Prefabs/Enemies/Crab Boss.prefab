@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7594425897011858626}
   - component: {fileID: 8201782622688290072}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 551709082748234050}
   - component: {fileID: 511752106044617999}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Instant Kill (1)
   m_TagString: Instant Kill
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7351969319635684226}
   - component: {fileID: 6271592883406926245}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Instant Kill
   m_TagString: Instant Kill
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2194235714785668466}
   - component: {fileID: 1084982628074148679}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7990764176145544757}
   - component: {fileID: 7990764176145544754}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,9 +366,9 @@ GameObject:
   - component: {fileID: 1263974947}
   - component: {fileID: 149769571}
   - component: {fileID: 1869836119}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Crab Boss
-  m_TagString: Golem Boss
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -19,8 +19,11 @@ public class PlayerHealth : MonoBehaviour
   [SerializeField] float maxHealth = 100f;
   [SerializeField] float maxArmor = 100f;
   [SerializeField] LayerMask invisibleWall;
+  [SerializeField] float enemyDamageRate = 0.5f;
   [SerializeField] float invisibleWallDamage = 10f;
   [SerializeField] float invisibleWallDamageRate = 1f;
+
+  float lastEnemyTouch = 0f;
   float lastInvisibleWallTouch = 0f;
 
   float currentHealth;
@@ -44,6 +47,9 @@ public class PlayerHealth : MonoBehaviour
   void Update()
   {
     UpdateBars();
+
+    PlayerCollisionHandler();
+
     OnTouchingInvisibleWall();
   }
 
@@ -57,17 +63,8 @@ public class PlayerHealth : MonoBehaviour
   {
     switch (collision.gameObject.tag.ToLower())
     {
-      case "crab":
-        PlayerCollisionHandler(collision, 10f);
-        break;
-      case "golem":
-        PlayerCollisionHandler(collision, 20f);
-        break;
-      case "zombie":
-        PlayerCollisionHandler(collision, 15f);
-        break;
-      case "golem boss":
-        PlayerCollisionHandler(collision, 40f);
+      case "enemy":
+        BouncePlayerBack(collision);
         break;
       case "instant kill":
         InstantKill();
@@ -117,16 +114,33 @@ public class PlayerHealth : MonoBehaviour
     FindObjectOfType<AudioManager>().Stop("Run");
   }
 
-  void PlayerCollisionHandler(Collision2D collision, float damage)
+  void PlayerCollisionHandler()
   {
-    TakeDamage(damage);
+    bool isTouchingEnemies = GetComponent<CapsuleCollider2D>().IsTouchingLayers(LayerMask.GetMask("Enemies"));
+    bool isTouchingBosses = GetComponent<CapsuleCollider2D>().IsTouchingLayers(LayerMask.GetMask("Bosses"));
 
-    BouncePlayerBack(collision);
+    if (GetComponent<CapsuleCollider2D>().IsTouchingLayers(LayerMask.GetMask("Enemies")) || GetComponent<CapsuleCollider2D>().IsTouchingLayers(LayerMask.GetMask("Bosses")))
+    {
+      if (Time.time - lastEnemyTouch > enemyDamageRate)
+      {
+        lastEnemyTouch = Time.time;
 
-    PlayHitEffect();
+        float damage = Random.Range(10, 30);
+        if (isTouchingBosses)
+        {
+          damage = Random.Range(30, 50);
+        }
+        TakeDamage(damage);
 
-    FindObjectOfType<AudioManager>().Play("PlayerHit");
+        PlayHitEffect();
+
+        FindObjectOfType<AudioManager>().Play("PlayerHit");
+
+        CheckPlayerDeath();
+      }
+    };
   }
+
 
   void TakeDamage(float damage)
   {

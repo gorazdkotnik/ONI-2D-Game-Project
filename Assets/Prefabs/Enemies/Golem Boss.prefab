@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5780258572926175167}
   - component: {fileID: 2198779662595980337}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Instant Kill
   m_TagString: Instant Kill
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8486964923303116305}
   - component: {fileID: 3181997805239427038}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Instant Kill (1)
   m_TagString: Instant Kill
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7982595420530811255}
   - component: {fileID: 7246038509140227860}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7990764176145544757}
   - component: {fileID: 7990764176145544754}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,9 +283,9 @@ GameObject:
   - component: {fileID: 1263974947}
   - component: {fileID: 149769571}
   - component: {fileID: 1869836119}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Golem Boss
-  m_TagString: Golem Boss
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -464,7 +464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8036459511115981895}
   - component: {fileID: 4924057892443324875}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}

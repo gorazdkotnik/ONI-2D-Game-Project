@@ -16,6 +16,7 @@ TagManager:
   - Coin
   - Gem
   - Instant Kill
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - Items
   - Floor
   - Invisible Wall
-  - 
+  - Bosses
   - 
   - 
   - 

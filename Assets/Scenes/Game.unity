@@ -2094,7 +2094,7 @@ PrefabInstance:
       objectReference: {fileID: 437015862}
     - target: {fileID: 3347278558723747257, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: collisionBounceX
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3347278558723747257, guid: 1e91d6106afa5054b89d0b614773330a, type: 3}
       propertyPath: collisionBounceY
