@@ -5,19 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+  public void PlayGame(string difficulty)
+  {
+    SceneManager.LoadScene("Game" + difficulty);
+  }
 
-    public void Credits()
-    {
-        SceneManager.LoadScene("Credits");
-    }
+  public void Credits()
+  {
+    SceneManager.LoadScene("Credits");
+  }
 
-    public void QuitGame()
-    {
-        Debug.Log("QUIT");
-        Application.Quit();
-    }
+  public void QuitGame()
+  {
+    Debug.Log("QUIT");
+    Application.Quit();
+  }
 }

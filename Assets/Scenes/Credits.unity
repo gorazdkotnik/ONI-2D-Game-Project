@@ -130,6 +130,44 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1241833763}
     m_Modifications:
+    - target: {fileID: 6152371451350591579, guid: 6c51d4b158303de4bafa73950a0125f6, type: 3}
+      propertyPath: m_text
+      value: 'Project Manager
+
+
+
+        Animators
+
+
+
+        Programmers
+
+
+
+        Original
+        Planner
+
+
+
+        Game Designers
+
+
+
+        UI Designer
+
+
+
+        Audio
+        Engineer
+
+
+
+        Game Play Testers
+
+
+
+        Special Thanks'
+      objectReference: {fileID: 0}
     - target: {fileID: 6152371451755210064, guid: 6c51d4b158303de4bafa73950a0125f6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -217,6 +255,13 @@ PrefabInstance:
     - target: {fileID: 6152371451755210065, guid: 6c51d4b158303de4bafa73950a0125f6, type: 3}
       propertyPath: m_Name
       value: Credits Wrapper
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152371452065348988, guid: 6c51d4b158303de4bafa73950a0125f6, type: 3}
+      propertyPath: m_text
+      value: "Gorazd Kotnik\n\n\nGorazd Kotnik\n\n\nGorazd Kotnik\n\n\nGorazd Kotnik\n\n\nGorazd
+        Kotnik\n\n\nGorazd Kotnik\n\n\nGorazd Kotnik\n\n\nGorazd Kotnik\n\n\nSamo
+        \u017Deleznik\nAle\u0161 Spital\nUro\u0161 Remenih\nMarjetka Herode\u017E\nNata\u0161a
+        Meh Peer\nSimona Dikli\u010D"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c51d4b158303de4bafa73950a0125f6, type: 3}

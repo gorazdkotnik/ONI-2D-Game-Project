@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
 
   [Header("UI")]
   [SerializeField] GameObject respawnScreen;
+  [SerializeField] TextMeshProUGUI respawnTitleText;
 
   [Header("Options")]
   [SerializeField] float maxHealth = 100f;
@@ -28,6 +30,8 @@ public class PlayerHealth : MonoBehaviour
 
   float currentHealth;
   float currentArmor;
+
+  float survivalTime = 0f;
 
   [SerializeField] float collisionBounceY = 10f;
   [SerializeField] float collisionBounceX = 50f;
@@ -51,6 +55,8 @@ public class PlayerHealth : MonoBehaviour
     PlayerCollisionHandler();
 
     OnTouchingInvisibleWall();
+
+    survivalTime += Time.deltaTime;
   }
 
   void UpdateBars()
@@ -106,6 +112,8 @@ public class PlayerHealth : MonoBehaviour
 
       Time.timeScale = 0f;
       respawnScreen.SetActive(true);
+
+      respawnTitleText.text = "You died!\nSurvival time: " + survivalTime.ToString("0.00") + " s";
     }
   }
 
