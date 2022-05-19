@@ -90,7 +90,7 @@ public class PlayerAttack : MonoBehaviour
             return;
         }       
 
-        if (Input.GetKeyDown(KeyCode.Q) && Time.time > qLastShoot + qAttackRate && EnoughMana(qManaCost))
+        if (Input.GetKeyDown(KeyCode.J) && Time.time > qLastShoot + qAttackRate && EnoughMana(qManaCost))
         {
             qLastShoot = Time.time;
             isAttacking = true;
@@ -98,7 +98,7 @@ public class PlayerAttack : MonoBehaviour
             UpdateMana(-qManaCost);
 
             Shoot();
-        } else if (Input.GetKeyDown(KeyCode.E) && Time.time > eLastShoot + eAttackRate && EnoughMana(eManaCost))
+        } else if (Input.GetKeyDown(KeyCode.K) && Time.time > eLastShoot + eAttackRate && EnoughMana(eManaCost))
         {
             qLastShoot = Time.time;
             eLastShoot = Time.time;
@@ -109,7 +109,7 @@ public class PlayerAttack : MonoBehaviour
             Shoot();
             Invoke("Shoot", 0.2f);
         }
-        else if (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.E))
+        else if (Input.GetKeyUp(KeyCode.J) || Input.GetKeyUp(KeyCode.K))
         {
             isAttacking = false;
         }
@@ -118,7 +118,7 @@ public class PlayerAttack : MonoBehaviour
 
     void SpecialAttackController()
     {
-        if (AbleToSpecialAttack() && EnoughMana(rManaCost) && Input.GetKey(KeyCode.R) && Time.time > rLastShoot + rAttackRate)
+        if (AbleToSpecialAttack() && EnoughMana(rManaCost) && Input.GetKey(KeyCode.L) && Time.time > rLastShoot + rAttackRate)
         {
             isSpecialAttacking = true;
             animator.SetBool("isJumping", isSpecialAttacking);
